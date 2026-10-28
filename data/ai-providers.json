@@ -1,0 +1,73 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-06-05",
+    "description": "무료 AI 모델 폴백 체인 설정. 무료 토큰/쿼터 소진(429·quota) 또는 일시적 오류 시 priority 순서대로 다음 제공자로 자동 전환한다. 모든 제공자는 OpenAI 호환 /chat/completions 엔드포인트를 사용하므로 단일 클라이언트로 처리한다.",
+    "note": "apiKeyEnv에 명시된 환경변수에 각 제공자의 무료 API 키를 넣어야 한다. 키가 없는 제공자는 자동으로 건너뛴다(skip)."
+  },
+  "strategy": "failover",
+  "request": {
+    "path": "/chat/completions",
+    "temperature": 0.7,
+    "maxTokens": 1024,
+    "timeoutMs": 30000
+  },
+  "failoverOn": {
+    "statusCodes": [402, 408, 409, 425, 429, 500, 502, 503, 504],
+    "errorKeywords": ["quota", "rate limit", "rate_limit", "insufficient", "overloaded", "capacity", "exhausted"]
+  },
+  "providers": [
+    {
+      "id": "gemini",
+      "label": "Google Gemini Flash",
+      "priority": 1,
+      "enabled": true,
+      "model": "gemini-2.0-flash",
+      "baseURL": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "apiKeyEnv": "GEMINI_API_KEY",
+      "format": "openai-compatible",
+      "freeTier": "약 1,500 요청/일, 한국어 품질 우수 → 1순위",
+      "signupURL": "https://aistudio.google.com/apikey"
+    },
+    {
+      "id": "groq",
+      "label": "Groq (Llama 3.3 70B)",
+      "priority": 2,
+      "enabled": true,
+      "model": "llama-3.3-70b-versatile",
+      "baseURL": "https://api.groq.com/openai/v1",
+      "apiKeyEnv": "GROQ_API_KEY",
+      "format": "openai-compatible",
+      "freeTier": "약 1,000 요청/일, 초고속 추론",
+      "signupURL": "https://console.groq.com/keys"
+    },
+    {
+      "id": "cerebras",
+      "label": "Cerebras (Llama 3.3 70B)",
+      "priority": 3,
+      "enabled": true,
+      "model": "llama-3.3-70b",
+      "baseURL": "https://api.cerebras.ai/v1",
+      "apiKeyEnv": "CEREBRAS_API_KEY",
+      "format": "openai-compatible",
+      "freeTier": "약 1M 토큰/일, 최고 처리량",
+      "signupURL": "https://cloud.cerebras.ai"
+    },
+    {
+      "id": "openrouter",
+      "label": "OpenRouter (무료 모델)",
+      "priority": 4,
+      "enabled": true,
+      "model": "meta-llama/llama-3.3-70b-instruct:free",
+      "baseURL": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      "format": "openai-compatible",
+      "freeTier": "무료 모델 다수 집계(:free 슬러그), 일일 한도 있음",
+      "signupURL": "https://openrouter.ai/keys",
+      "extraHeaders": {
+        "HTTP-Referer": "PERSONALITY_APP_URL",
+        "X-Title": "성격 유형 검사 챗봇"
+      }
+    }
+  ]
+}

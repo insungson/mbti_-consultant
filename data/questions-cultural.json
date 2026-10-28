@@ -1,0 +1,93 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-04-29",
+    "description": "문화 성향 질문지 - 10문항 (5차원 × 2문항)",
+    "totalQuestions": 10,
+    "questionsPerDimension": 2
+  },
+  "instructions": {
+    "text_ko": "연인과의 관계에서 자신의 성향을 가장 잘 설명하는 정도를 선택해주세요.",
+    "scale": [
+      { "value": 1, "label": "매우 동의하지 않음" },
+      { "value": 2, "label": "동의하지 않음" },
+      { "value": 3, "label": "약간 동의하지 않음" },
+      { "value": 4, "label": "중립" },
+      { "value": 5, "label": "약간 동의함" },
+      { "value": 6, "label": "동의함" },
+      { "value": 7, "label": "매우 동의함" }
+    ]
+  },
+  "questions": [
+    {
+      "id": "cq001",
+      "dimension": "COM",
+      "direction": "direct",
+      "text_ko": "나는 연인에게 불만이 있으면 돌려 말하지 않고 바로 이야기하는 편이다.",
+      "reverseScored": false
+    },
+    {
+      "id": "cq002",
+      "dimension": "COM",
+      "direction": "indirect",
+      "text_ko": "연인의 기분이 상할 수 있는 말은 직접 꺼내기보다 분위기를 살피며 넌지시 전달한다.",
+      "reverseScored": true
+    },
+    {
+      "id": "cq003",
+      "dimension": "CON",
+      "direction": "confrontational",
+      "text_ko": "연인과 의견이 다를 때, 불편하더라도 그 자리에서 솔직하게 논의하는 것이 낫다고 생각한다.",
+      "reverseScored": false
+    },
+    {
+      "id": "cq004",
+      "dimension": "CON",
+      "direction": "harmony-seeking",
+      "text_ko": "사소한 갈등은 굳이 꺼내지 않고 시간이 지나면 자연스럽게 해결되도록 두는 편이다.",
+      "reverseScored": true
+    },
+    {
+      "id": "cq005",
+      "dimension": "AFF",
+      "direction": "verbal/public",
+      "text_ko": "사람들 앞에서도 연인에게 '사랑해'라고 말하거나 애정을 표현하는 것이 자연스럽다.",
+      "reverseScored": false
+    },
+    {
+      "id": "cq006",
+      "dimension": "AFF",
+      "direction": "action/private",
+      "text_ko": "사랑은 말보다 묵묵히 챙겨주는 행동으로 보여주는 것이 더 진심이라고 느낀다.",
+      "reverseScored": true
+    },
+    {
+      "id": "cq007",
+      "dimension": "FAM",
+      "direction": "independent",
+      "text_ko": "연인과의 중요한 결정(이사, 직장 변경 등)은 가족의 의견보다 둘의 판단이 우선이라고 생각한다.",
+      "reverseScored": false
+    },
+    {
+      "id": "cq008",
+      "dimension": "FAM",
+      "direction": "close-knit",
+      "text_ko": "연인 관계에서도 양쪽 가족의 기대와 조언을 충분히 고려하는 것이 중요하다.",
+      "reverseScored": true
+    },
+    {
+      "id": "cq009",
+      "dimension": "ROL",
+      "direction": "egalitarian",
+      "text_ko": "연인 사이에서 가사, 경제적 부담, 의사결정은 성별과 관계없이 동등하게 나눠야 한다.",
+      "reverseScored": false
+    },
+    {
+      "id": "cq010",
+      "dimension": "ROL",
+      "direction": "traditional",
+      "text_ko": "커플에게는 각자 더 잘 맞는 역할이 있으며, 그것을 자연스럽게 분담하는 것이 효율적이다.",
+      "reverseScored": true
+    }
+  ]
+}

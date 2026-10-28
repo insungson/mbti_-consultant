@@ -1,0 +1,77 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-04-29",
+    "description": "성격 유형 검사 점수 산출 규칙"
+  },
+  "method": "centered-sum",
+  "centerValue": 4,
+  "axes": {
+    "EI": {
+      "poles": ["E", "I"],
+      "label_ko": { "E": "외향형", "I": "내향형" },
+      "description_ko": "에너지의 방향 — 외부 세계 vs 내면 세계",
+      "questionIds": [
+        "q001", "q002", "q003", "q004", "q005",
+        "q006", "q007", "q008", "q009", "q010",
+        "q011", "q012", "q013", "q014", "q015"
+      ],
+      "maxScore": 45
+    },
+    "SN": {
+      "poles": ["S", "N"],
+      "label_ko": { "S": "감각형", "N": "직관형" },
+      "description_ko": "정보 인식 방식 — 구체적 사실 vs 패턴과 가능성",
+      "questionIds": [
+        "q016", "q017", "q018", "q019", "q020",
+        "q021", "q022", "q023", "q024", "q025",
+        "q026", "q027", "q028", "q029", "q030"
+      ],
+      "maxScore": 45
+    },
+    "TF": {
+      "poles": ["T", "F"],
+      "label_ko": { "T": "사고형", "F": "감정형" },
+      "description_ko": "의사결정 방식 — 논리와 원칙 vs 가치와 공감",
+      "questionIds": [
+        "q031", "q032", "q033", "q034", "q035",
+        "q036", "q037", "q038", "q039", "q040",
+        "q041", "q042", "q043", "q044", "q045"
+      ],
+      "maxScore": 45
+    },
+    "JP": {
+      "poles": ["J", "P"],
+      "label_ko": { "J": "판단형", "P": "인식형" },
+      "description_ko": "생활 양식 — 체계와 계획 vs 유연성과 개방성",
+      "questionIds": [
+        "q046", "q047", "q048", "q049", "q050",
+        "q051", "q052", "q053", "q054", "q055",
+        "q056", "q057", "q058", "q059", "q060"
+      ],
+      "maxScore": 45
+    }
+  },
+  "calculation": {
+    "steps_ko": [
+      "1. 각 응답에서 4를 빼서 중심화합니다 (-3 ~ +3)",
+      "2. 역채점 문항은 부호를 반전합니다",
+      "3. 축별로 15개 문항의 중심화 점수를 합산합니다",
+      "4. 합이 양수이면 첫번째 극, 음수이면 두번째 극입니다",
+      "5. 강도(%): |합계| ÷ 45 × 100"
+    ]
+  },
+  "resultFormat": {
+    "typeCode": "4-letter string (e.g., INTJ)",
+    "axes": {
+      "EI": { "pole": "E or I", "score": "raw sum", "percentage": "0-100" },
+      "SN": { "pole": "S or N", "score": "raw sum", "percentage": "0-100" },
+      "TF": { "pole": "T or F", "score": "raw sum", "percentage": "0-100" },
+      "JP": { "pole": "J or P", "score": "raw sum", "percentage": "0-100" }
+    }
+  },
+  "turbulence": {
+    "enabled": false,
+    "description": "A/T dimension - to be added in future version"
+  }
+}

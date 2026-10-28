@@ -1,0 +1,91 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-10-28",
+    "description": "결과 리포트 공통 메타 - 섹션 순서·화면 제목·상담 연결 CTA·성향 축 설명·궁합 라벨·고정 안내 문구. 유형별 콘텐츠는 profiles.json 에 있다.",
+    "spec": "docs/plan/report_spec.md"
+  },
+  "sections": [
+    { "id": "mirror", "title": "한눈에 보는 나", "source": "profiles.mirror" },
+    { "id": "axes", "title": "나의 성향 스펙트럼", "source": "result.axes" },
+    { "id": "population", "title": "이 유형은 얼마나 있을까", "source": "profiles.statistics.populationPercentage", "notice": "population" },
+    { "id": "strengths", "title": "이럴 때 빛나요", "source": "profiles.strengths" },
+    { "id": "weaknesses", "title": "이럴 땐 조금 지칠 수 있어요", "source": "profiles.weaknesses" },
+    {
+      "id": "careers",
+      "title": "일할 때의 나",
+      "source": "profiles.careers",
+      "subTitles": {
+        "workStyle": "이런 환경에서 빛나요",
+        "recommended": "잘 어울리는 분야",
+        "lessIdeal": "에너지가 많이 들 수 있는 환경"
+      },
+      "cta": { "personaId": "career", "title": "일 고민, 지온과 정리해 볼까요?", "starterIndex": 0 }
+    },
+    {
+      "id": "romantic",
+      "title": "사랑할 때의 나",
+      "source": "profiles.relationships.romantic",
+      "cta": { "personaId": "relationship", "title": "관계 고민, 하랑에게 털어놓아 볼까요?", "starterIndex": 1 }
+    },
+    {
+      "id": "compatPreview",
+      "title": "궁합 미리보기",
+      "source": "profiles.compatPreview",
+      "notice": "compat",
+      "cta": { "personaId": "relationship", "title": "다른 유형과의 궁합, 하랑과 더 이야기해 볼까요?", "starterIndex": 3 }
+    },
+    {
+      "id": "socialTips",
+      "title": "사회생활 꿀팁",
+      "source": "profiles.socialTips",
+      "cta": { "personaId": "career", "title": "회사·학교 사람 관계, 지온에게 물어볼까요?", "starterIndex": 2 }
+    },
+    { "id": "famousPeople", "title": "나와 닮은 사람들", "source": "famous-people.byType (featured=true)", "notice": "famous" },
+    {
+      "id": "growth",
+      "title": "성장 한마디",
+      "source": "profiles.growthMessage + profiles.growthAdvice",
+      "subTitles": { "growthAdvice": "작은 성장 팁" },
+      "cta": { "personaId": "growth", "title": "성장 습관, 다온과 하나씩 만들어 볼까요?", "starterIndex": 0 }
+    },
+    { "id": "finalCta", "title": "더 깊은 이야기는", "source": "finalCta", "notice": "disclaimer" },
+    { "id": "moreInfo", "title": "이 유형을 더 깊이 이해하기", "source": "profiles.introduction + profiles.cognitiveStack", "collapsed": true }
+  ],
+  "ctaButtonTemplate": "{personaName}에게 물어보기",
+  "finalCta": {
+    "title": "더 깊은 이야기는 세 상담사와 나눠 보세요",
+    "cards": [
+      { "personaId": "career", "summary": "진로와 회사·학교 생활 고민" },
+      { "personaId": "relationship", "summary": "연애와 소중한 관계 고민" },
+      { "personaId": "growth", "summary": "미루기·번아웃·자존감 고민" }
+    ]
+  },
+  "axes": {
+    "displayRule": "검사 결과의 축별 강도(0~100)를 양극 비율로 바꿔 보여 준다. 우세 쪽 = 50 + 강도 ÷ 2 (반올림), 반대쪽 = 100 - 우세 쪽.",
+    "turbulence": "scoring.json 의 turbulence.enabled 가 false 라 A/T 는 표시하지 않는다.",
+    "poles": {
+      "E": { "label": "외향형", "line": "사람들과 어울리며 에너지를 채우는 편이에요" },
+      "I": { "label": "내향형", "line": "혼자만의 시간에 에너지를 채우는 편이에요" },
+      "S": { "label": "감각형", "line": "지금 눈앞의 사실과 경험을 믿는 편이에요" },
+      "N": { "label": "직관형", "line": "숨은 의미와 앞으로의 가능성에 끌리는 편이에요" },
+      "T": { "label": "사고형", "line": "원칙과 논리로 공정하게 판단하려는 편이에요" },
+      "F": { "label": "감정형", "line": "사람과 가치를 먼저 살피며 판단하는 편이에요" },
+      "J": { "label": "판단형", "line": "계획을 세우고 정리된 상태에서 편안한 편이에요" },
+      "P": { "label": "인식형", "line": "열어 두고 상황에 맞춰 움직일 때 편안한 편이에요" }
+    }
+  },
+  "compatLevelLabels": {
+    "excellent": "잘 통하는 사이",
+    "good": "잘 통하는 사이",
+    "moderate": "서로 맞춰 가는 사이",
+    "challenging": "서로 배울 게 많은 사이",
+    "difficult": "서로 배울 게 많은 사이"
+  },
+  "notices": {
+    "population": "전체의 약 {percent}%로 추정돼요. 참고용 추정치예요.",
+    "compat": "궁합은 운명이 아니라, 서로 다른 작동 방식을 보여 주는 참고예요.",
+    "famous": "성향이 닮았다고 알려진 인물이에요. 공식적으로 확인된 정보는 아니에요.",
+    "disclaimer": "이 결과는 자기 이해를 돕기 위한 참고용이며, 전문적인 심리 상담이나 진단을 대체하지 않아요."
+  }
+}

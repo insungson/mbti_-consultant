@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+
+# 환경변수 (AI API 키 등은 절대 커밋하지 않는다)
+.env
+.env.*
+
+# 의존성·로그
+node_modules/
+*.log
+__pycache__/
+
+# Claude Code 개인 권한 설정
+.claude/settings.local.json

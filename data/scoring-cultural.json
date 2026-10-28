@@ -1,0 +1,82 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-04-29",
+    "description": "문화 성향 점수 산출 및 최종 궁합 합산 규칙"
+  },
+  "method": "centered-sum",
+  "centerValue": 4,
+  "dimensions": {
+    "COM": {
+      "label_ko": "의사소통 스타일",
+      "poles": { "high": "직접적 소통", "low": "간접적 소통" },
+      "description_ko": "감정이나 의견을 얼마나 직접적으로 표현하는지",
+      "questionIds": ["cq001", "cq002"],
+      "maxScore": 6
+    },
+    "CON": {
+      "label_ko": "갈등 해결 방식",
+      "poles": { "high": "대면 직면", "low": "조화 우선" },
+      "description_ko": "갈등 상황에서 직접 해결하려 하는지, 조화를 우선하는지",
+      "questionIds": ["cq003", "cq004"],
+      "maxScore": 6
+    },
+    "AFF": {
+      "label_ko": "애정 표현 방식",
+      "poles": { "high": "언어적/공개적", "low": "행동적/사적" },
+      "description_ko": "애정을 말과 공개적 행동으로 표현하는지, 행동과 사적 배려로 표현하는지",
+      "questionIds": ["cq005", "cq006"],
+      "maxScore": 6
+    },
+    "FAM": {
+      "label_ko": "가족 관계 기대",
+      "poles": { "high": "독립형", "low": "밀착형" },
+      "description_ko": "커플/부부로서 원가족과 얼마나 독립적인 관계를 선호하는지",
+      "questionIds": ["cq007", "cq008"],
+      "maxScore": 6
+    },
+    "ROL": {
+      "label_ko": "역할 기대",
+      "poles": { "high": "평등적", "low": "전통적" },
+      "description_ko": "관계에서 역할 분담을 평등하게 하는지, 전통적 구분을 따르는지",
+      "questionIds": ["cq009", "cq010"],
+      "maxScore": 6
+    }
+  },
+  "dimensionCalculation": {
+    "steps_ko": [
+      "1. 각 응답에서 4를 빼서 중심화합니다 (-3 ~ +3)",
+      "2. 역채점 문항은 부호를 반전합니다",
+      "3. 차원별 2문항의 중심화 점수를 합산합니다 (-6 ~ +6)",
+      "4. 0~100 스케일로 변환: (합계 + 6) / 12 × 100",
+      "5. 높은 점수 = 첫번째 극 (직접적/대면/언어적/독립적/평등적)"
+    ],
+    "formula": "(sum + 6) / 12 * 100"
+  },
+  "coupleCompatibility": {
+    "description_ko": "두 사람의 문화 성향 차이를 기반으로 문화 궁합 점수를 산출합니다",
+    "method": "dimension-distance",
+    "steps_ko": [
+      "1. 각 차원별 두 사람의 점수 차이(절대값)를 계산합니다",
+      "2. 차이를 궁합 점수로 변환: 100 - 차이값",
+      "3. 5개 차원의 궁합 점수를 가중 평균합니다"
+    ],
+    "weights": {
+      "COM": 0.25,
+      "CON": 0.25,
+      "AFF": 0.20,
+      "FAM": 0.15,
+      "ROL": 0.15
+    },
+    "weights_reason_ko": "의사소통과 갈등해결이 관계 만족도에 가장 큰 영향을 미치므로 높은 가중치를 부여합니다"
+  },
+  "finalScore": {
+    "description_ko": "MBTI 궁합과 문화 궁합을 합산하여 최종 종합 궁합 점수를 산출합니다",
+    "formula": "mbtiScore * 0.7 + culturalScore * 0.3",
+    "weights": {
+      "mbti": 0.7,
+      "cultural": 0.3
+    },
+    "weights_reason_ko": "성격 유형이 관계의 기본 토대이며, 문화적 성향은 보조적 요인으로 작용합니다"
+  }
+}

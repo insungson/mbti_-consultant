@@ -1,0 +1,563 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-04-29",
+    "description": "성격 유형 검사 질문지 - 60문항",
+    "totalQuestions": 60,
+    "questionsPerAxis": 15
+  },
+  "instructions": {
+    "text_ko": "각 문장이 자신을 얼마나 잘 설명하는지 선택해주세요.",
+    "scale": [
+      { "value": 1, "label": "매우 동의하지 않음" },
+      { "value": 2, "label": "동의하지 않음" },
+      { "value": 3, "label": "약간 동의하지 않음" },
+      { "value": 4, "label": "중립" },
+      { "value": 5, "label": "약간 동의함" },
+      { "value": 6, "label": "동의함" },
+      { "value": 7, "label": "매우 동의함" }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q001",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "사람들과 어울린 후에 오히려 에너지가 충전되는 느낌이 든다.",
+      "category": "energy",
+      "reverseScored": false
+    },
+    {
+      "id": "q002",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "혼자만의 시간이 충분하지 않으면 쉽게 지친다.",
+      "category": "energy",
+      "reverseScored": true
+    },
+    {
+      "id": "q003",
+      "axis": "EI",
+      "direction": "E",
+      "type": "scenario",
+      "text_ko": "주말에 갑자기 친구가 모임에 초대하면, 기꺼이 나가고 싶은 마음이 든다.",
+      "category": "energy",
+      "reverseScored": false
+    },
+    {
+      "id": "q004",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "긴 사회적 활동 후에는 혼자서 조용히 회복하는 시간이 꼭 필요하다.",
+      "category": "energy",
+      "reverseScored": true
+    },
+    {
+      "id": "q005",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "활기찬 분위기 속에 있으면 기분이 좋아진다.",
+      "category": "energy",
+      "reverseScored": false
+    },
+    {
+      "id": "q006",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "새로운 사람을 만나는 것이 즐겁다.",
+      "category": "social",
+      "reverseScored": false
+    },
+    {
+      "id": "q007",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "소수의 깊은 관계가 넓은 인맥보다 훨씬 중요하다고 느낀다.",
+      "category": "social",
+      "reverseScored": true
+    },
+    {
+      "id": "q008",
+      "axis": "EI",
+      "direction": "E",
+      "type": "scenario",
+      "text_ko": "처음 참석하는 모임에서 먼저 다가가 말을 거는 편이다.",
+      "category": "social",
+      "reverseScored": false
+    },
+    {
+      "id": "q009",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "대화할 때 먼저 말하기보다는 상대의 이야기를 듣는 쪽을 선호한다.",
+      "category": "social",
+      "reverseScored": true
+    },
+    {
+      "id": "q010",
+      "axis": "EI",
+      "direction": "E",
+      "type": "scenario",
+      "text_ko": "점심시간에 동료들과 함께 식사하는 것이 혼자 먹는 것보다 좋다.",
+      "category": "social",
+      "reverseScored": false
+    },
+    {
+      "id": "q011",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "조용하고 차분한 환경에서 더 잘 집중할 수 있다.",
+      "category": "stimulation",
+      "reverseScored": true
+    },
+    {
+      "id": "q012",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "생각을 말로 표현하면서 정리하는 편이다.",
+      "category": "stimulation",
+      "reverseScored": false
+    },
+    {
+      "id": "q013",
+      "axis": "EI",
+      "direction": "E",
+      "type": "scenario",
+      "text_ko": "카페에서 공부하거나 일할 때, 주변이 시끄러우면 집중하기 어렵다.",
+      "category": "stimulation",
+      "reverseScored": true
+    },
+    {
+      "id": "q014",
+      "axis": "EI",
+      "direction": "E",
+      "type": "self-report",
+      "text_ko": "여러 활동을 동시에 하는 것이 하나에 집중하는 것보다 자연스럽다.",
+      "category": "stimulation",
+      "reverseScored": false
+    },
+    {
+      "id": "q015",
+      "axis": "EI",
+      "direction": "E",
+      "type": "scenario",
+      "text_ko": "퇴근 후 집에서 혼자 취미 활동을 하는 것이 가장 이상적인 저녁이다.",
+      "category": "stimulation",
+      "reverseScored": true
+    },
+    {
+      "id": "q016",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "구체적인 사실과 세부 사항에 주의를 기울이는 편이다.",
+      "category": "perception",
+      "reverseScored": false
+    },
+    {
+      "id": "q017",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "전체적인 그림이나 패턴을 파악하는 것이 세부 사항보다 먼저 눈에 들어온다.",
+      "category": "perception",
+      "reverseScored": true
+    },
+    {
+      "id": "q018",
+      "axis": "SN",
+      "direction": "S",
+      "type": "scenario",
+      "text_ko": "새로운 요리를 할 때, 레시피를 정확히 따라가는 편이다.",
+      "category": "perception",
+      "reverseScored": false
+    },
+    {
+      "id": "q019",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "머릿속으로 다양한 가능성을 상상하는 시간이 많다.",
+      "category": "perception",
+      "reverseScored": true
+    },
+    {
+      "id": "q020",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "직접 경험한 것을 바탕으로 판단하는 것이 가장 신뢰할 수 있다고 생각한다.",
+      "category": "perception",
+      "reverseScored": false
+    },
+    {
+      "id": "q021",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "현재 일어나고 있는 일에 집중하는 것이 자연스럽다.",
+      "category": "focus",
+      "reverseScored": false
+    },
+    {
+      "id": "q022",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "미래에 어떤 일이 일어날 수 있을지 생각하는 것을 좋아한다.",
+      "category": "focus",
+      "reverseScored": true
+    },
+    {
+      "id": "q023",
+      "axis": "SN",
+      "direction": "S",
+      "type": "scenario",
+      "text_ko": "같은 일을 반복하는 것보다 매번 새로운 방식을 시도해보고 싶다.",
+      "category": "focus",
+      "reverseScored": true
+    },
+    {
+      "id": "q024",
+      "axis": "SN",
+      "direction": "S",
+      "type": "scenario",
+      "text_ko": "같은 길을 매일 걷더라도, 문득 새로운 아이디어가 떠오르는 경우가 많다.",
+      "category": "focus",
+      "reverseScored": true
+    },
+    {
+      "id": "q025",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "이미 검증된 방법보다 새로운 접근법을 시도하는 것이 더 흥미롭다.",
+      "category": "focus",
+      "reverseScored": true
+    },
+    {
+      "id": "q026",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "설명을 들을 때 구체적인 예시가 있어야 이해하기 쉽다.",
+      "category": "information",
+      "reverseScored": false
+    },
+    {
+      "id": "q027",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "비유나 은유적인 표현을 사용하는 것이 자연스럽다.",
+      "category": "information",
+      "reverseScored": true
+    },
+    {
+      "id": "q028",
+      "axis": "SN",
+      "direction": "S",
+      "type": "scenario",
+      "text_ko": "업무 보고를 할 때, 숫자와 데이터를 중심으로 설명하는 것을 선호한다.",
+      "category": "information",
+      "reverseScored": false
+    },
+    {
+      "id": "q029",
+      "axis": "SN",
+      "direction": "S",
+      "type": "self-report",
+      "text_ko": "사물이나 사건 뒤에 숨겨진 의미를 찾으려는 편이다.",
+      "category": "information",
+      "reverseScored": true
+    },
+    {
+      "id": "q030",
+      "axis": "SN",
+      "direction": "S",
+      "type": "scenario",
+      "text_ko": "매뉴얼이나 설명서를 꼼꼼히 읽고 나서 제품을 사용하는 편이다.",
+      "category": "information",
+      "reverseScored": false
+    },
+    {
+      "id": "q031",
+      "axis": "TF",
+      "direction": "T",
+      "type": "self-report",
+      "text_ko": "결정을 내릴 때 감정보다 논리적 분석을 우선시한다.",
+      "category": "decision",
+      "reverseScored": false
+    },
+    {
+      "id": "q032",
+      "axis": "TF",
+      "direction": "T",
+      "type": "self-report",
+      "text_ko": "결정이 관련된 사람들에게 어떤 영향을 미칠지 먼저 생각한다.",
+      "category": "decision",
+      "reverseScored": true
+    },
+    {
+      "id": "q033",
+      "axis": "TF",
+      "direction": "T",
+      "type": "scenario",
+      "text_ko": "팀 프로젝트에서 의견 충돌이 있을 때, 가장 효율적인 방안을 기준으로 선택한다.",
+      "category": "decision",
+      "reverseScored": false
+    },
+    {
+      "id": "q034",
+      "axis": "TF",
+      "direction": "T",
+      "type": "scenario",
+      "text_ko": "친구가 실수를 했을 때, 지적하기보다 먼저 감정을 살피게 된다.",
+      "category": "decision",
+      "reverseScored": true
+    },
+    {
+      "id": "q035",
+      "axis": "TF",
+      "direction": "T",
+      "type": "self-report",
+      "text_ko": "공정한 기준을 적용하는 것이 상황에 따라 예외를 두는 것보다 옳다고 생각한다.",
+      "category": "decision",
+      "reverseScored": false
+    },
+    {
+      "id": "q036",
+      "axis": "TF",
+      "direction": "T",
+      "type": "self-report",
+      "text_ko": "다른 사람의 감정 변화를 쉽게 알아차리는 편이다.",
+      "category": "values",
+      "reverseScored": true
+    },
+    {
+      "id": "q037",
+      "axis": "TF",
+      "direction": "T",
+      "type": "self-report",
+      "text_ko": "객관적인 사실이 개인적인 느낌보다 더 중요하다고 생각한다.",
+      "category": "values",
+      "reverseScored": false
+    },
+    {
+      "id": "q038",
+      "axis": "TF",
+      "direction": "T",
+      "type": "self-report",
+      "text_ko": "주변 사람들의 기분에 쉽게 영향을 받는다.",
+      "category": "values",
+      "reverseScored": true
+    },
+    {
+      "id": "q039",
+      "axis": "TF",
+      "direction": "T",
+      "type": "scenario",
+      "text_ko": "뉴스를 볼 때, 감정적인 이야기보다 통계와 근거에 더 관심이 간다.",
+      "category": "values",
+      "reverseScored": false
+    },
+    {
+      "id": "q040",
+      "axis": "TF",
+      "direction": "T",
+      "type": "scenario",
+      "text_ko": "누군가가 힘들어하면, 해결책을 제시하기보다 먼저 공감해주고 싶다.",
+      "category": "values",
+      "reverseScored": true
+    },
+    {
+      "id": "q041",
+      "axis": "TF",
+      "direction": "T",
+      "type": "self-report",
+      "text_ko": "갈등 상황에서 옳고 그름을 명확히 하는 것이 중요하다고 느낀다.",
+      "category": "conflict",
+      "reverseScored": false
+    },
+    {
+      "id": "q042",
+      "axis": "TF",
+      "direction": "T",
+      "type": "self-report",
+      "text_ko": "갈등이 생기면 관계가 손상되지 않도록 조심스럽게 대응한다.",
+      "category": "conflict",
+      "reverseScored": true
+    },
+    {
+      "id": "q043",
+      "axis": "TF",
+      "direction": "T",
+      "type": "scenario",
+      "text_ko": "동료가 비효율적인 방식으로 일하고 있으면, 솔직하게 개선점을 말해주는 편이다.",
+      "category": "conflict",
+      "reverseScored": false
+    },
+    {
+      "id": "q044",
+      "axis": "TF",
+      "direction": "T",
+      "type": "scenario",
+      "text_ko": "회의에서 누군가의 의견이 무시당하면, 그 사람의 입장을 대변해주고 싶어진다.",
+      "category": "conflict",
+      "reverseScored": true
+    },
+    {
+      "id": "q045",
+      "axis": "TF",
+      "direction": "T",
+      "type": "self-report",
+      "text_ko": "비판적인 피드백을 줄 때 상대방이 상처받을까 걱정이 된다.",
+      "category": "conflict",
+      "reverseScored": true
+    },
+    {
+      "id": "q046",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "일을 시작하기 전에 계획을 세우는 편이다.",
+      "category": "structure",
+      "reverseScored": false
+    },
+    {
+      "id": "q047",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "규칙이나 절차가 너무 많으면 답답하게 느껴진다.",
+      "category": "structure",
+      "reverseScored": true
+    },
+    {
+      "id": "q048",
+      "axis": "JP",
+      "direction": "J",
+      "type": "scenario",
+      "text_ko": "책상이나 작업 공간이 깔끔하게 정리되어 있어야 마음이 편하다.",
+      "category": "structure",
+      "reverseScored": false
+    },
+    {
+      "id": "q049",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "꼭 필요한 경우가 아니면 정해진 틀에 따르기보다 자유롭게 하는 것이 좋다.",
+      "category": "structure",
+      "reverseScored": true
+    },
+    {
+      "id": "q050",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "해야 할 일의 목록을 만들고 하나씩 완료하는 것에서 만족감을 느낀다.",
+      "category": "structure",
+      "reverseScored": false
+    },
+    {
+      "id": "q051",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "마감 기한이 정해져 있으면 미리미리 준비하는 편이다.",
+      "category": "planning",
+      "reverseScored": false
+    },
+    {
+      "id": "q052",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "마감이 가까워져야 집중력이 올라가고 일이 잘 된다.",
+      "category": "planning",
+      "reverseScored": true
+    },
+    {
+      "id": "q053",
+      "axis": "JP",
+      "direction": "J",
+      "type": "scenario",
+      "text_ko": "여행 전에 방문할 장소와 이동 경로를 미리 정리해두는 편이다.",
+      "category": "planning",
+      "reverseScored": false
+    },
+    {
+      "id": "q054",
+      "axis": "JP",
+      "direction": "J",
+      "type": "scenario",
+      "text_ko": "여행지에서 계획에 없던 장소를 발견하면, 일정을 바꿔서라도 들러보고 싶다.",
+      "category": "planning",
+      "reverseScored": true
+    },
+    {
+      "id": "q055",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "중요한 결정은 가능한 한 빨리 내려야 마음이 놓인다.",
+      "category": "planning",
+      "reverseScored": false
+    },
+    {
+      "id": "q056",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "예상치 못한 변화가 생겨도 크게 동요하지 않는다.",
+      "category": "adaptability",
+      "reverseScored": true
+    },
+    {
+      "id": "q057",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "갑작스러운 일정 변경이 생기면 스트레스를 받는다.",
+      "category": "adaptability",
+      "reverseScored": false
+    },
+    {
+      "id": "q058",
+      "axis": "JP",
+      "direction": "J",
+      "type": "scenario",
+      "text_ko": "친구가 갑자기 다른 계획을 제안하면, 기존 계획을 유연하게 바꿀 수 있다.",
+      "category": "adaptability",
+      "reverseScored": true
+    },
+    {
+      "id": "q059",
+      "axis": "JP",
+      "direction": "J",
+      "type": "self-report",
+      "text_ko": "선택지를 열어두는 것이 하나로 확정하는 것보다 편하다.",
+      "category": "adaptability",
+      "reverseScored": true
+    },
+    {
+      "id": "q060",
+      "axis": "JP",
+      "direction": "J",
+      "type": "scenario",
+      "text_ko": "프로젝트를 진행할 때, 단계별로 명확한 기준이 있어야 안심이 된다.",
+      "category": "adaptability",
+      "reverseScored": false
+    }
+  ]
+}

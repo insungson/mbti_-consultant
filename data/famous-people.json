@@ -1,0 +1,1033 @@
+{
+  "_meta": {
+    "version": "1.1.0",
+    "generatedAt": "2026-04-29",
+    "description": "성격 유형별 유명인 데이터베이스",
+    "updatedAt": "2026-10-28",
+    "selectionCriteria": "널리 보도된 형사·폭력·혐오 표현 논란 인물과 현역 국내 정당 정치인은 제외. 리포트에는 featured=true 4명만 표시하며 한국 인물을 우선. 모든 인물의 유형은 추정치(verified=false)다."
+  },
+  "byType": {
+    "INTJ": [
+      {
+        "name_ko": "크리스토퍼 놀란",
+        "name_en": "Christopher Nolan",
+        "field": "영화 감독",
+        "nationality": "영국",
+        "description": "복잡한 서사 구조와 치밀한 연출로 유명하며, INTJ의 체계적 사고와 완벽주의적 비전이 작품에 녹아있습니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "미셸 오바마",
+        "name_en": "Michelle Obama",
+        "field": "정치/사회운동",
+        "nationality": "미국",
+        "description": "전략적 사고와 독립적 리더십으로 사회 변화를 이끌며, INTJ의 목표 지향적 실행력이 돋보입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "아이작 뉴턴",
+        "name_en": "Isaac Newton",
+        "field": "과학",
+        "nationality": "영국",
+        "description": "독립적 연구와 체계적 이론 구축으로 과학 혁명을 이끈 인물로, INTJ의 깊은 분석력이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "정재승",
+        "name_en": "Jung Jae-seung",
+        "field": "뇌과학/저술",
+        "nationality": "한국",
+        "description": "복잡한 과학 이론을 체계적으로 풀어내는 뇌과학자로, INTJ의 논리적 분석력과 지적 호기심이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "제이 지",
+        "name_en": "Jay-Z",
+        "field": "음악/사업",
+        "nationality": "미국",
+        "description": "음악과 비즈니스를 전략적으로 결합한 기업가형 아티스트로, INTJ의 장기적 안목이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "이수만",
+        "name_en": "Lee Soo-man",
+        "field": "엔터테인먼트 사업",
+        "nationality": "한국",
+        "description": "SM엔터테인먼트를 설립하여 K-pop 산업의 체계를 구축한 선구자로, INTJ의 전략적 비전이 돋보입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "힐러리 클린턴",
+        "name_en": "Hillary Clinton",
+        "field": "정치",
+        "nationality": "미국",
+        "description": "철저한 준비와 전략적 정치 감각으로 알려진 정치인으로, INTJ의 목표 달성을 위한 체계적 접근이 잘 보입니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "INTP": [
+      {
+        "name_ko": "알베르트 아인슈타인",
+        "name_en": "Albert Einstein",
+        "field": "물리학",
+        "nationality": "독일",
+        "description": "상대성 이론을 창시한 천재 물리학자로, INTP의 추상적 사고와 독창적 이론 구축 능력이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "찰스 다윈",
+        "name_en": "Charles Darwin",
+        "field": "생물학",
+        "nationality": "영국",
+        "description": "진화론을 체계화한 자연과학자로, INTP의 끊임없는 탐구심과 독립적 사고 방식이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "티나 페이",
+        "name_en": "Tina Fey",
+        "field": "코미디/배우",
+        "nationality": "미국",
+        "description": "날카로운 위트와 논리적 유머로 유명한 코미디언으로, INTP의 관찰력과 분석적 유머 감각이 돋보입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "김상욱",
+        "name_en": "Kim Sang-wook",
+        "field": "물리학/과학 커뮤니케이터",
+        "nationality": "한국",
+        "description": "물리학의 본질적 질문을 탐구하며 대중과 소통하는 과학자로, INTP의 이론적 호기심이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "빌 게이츠",
+        "name_en": "Bill Gates",
+        "field": "기술/자선",
+        "nationality": "미국",
+        "description": "마이크로소프트를 창립한 기술 혁신가로, INTP의 논리적 분석력과 복잡한 문제 해결 능력이 돋보입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "랜들 먼로",
+        "name_en": "Randall Munroe",
+        "field": "작가/만화가",
+        "nationality": "미국",
+        "description": "xkcd 웹코믹으로 과학을 유머러스하게 풀어내며, INTP의 지적 호기심과 창의적 분석이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ENTJ": [
+      {
+        "name_ko": "스티브 잡스",
+        "name_en": "Steve Jobs",
+        "field": "기술/기업",
+        "nationality": "미국",
+        "description": "Apple을 세계적 기업으로 이끈 카리스마 넘치는 리더로, ENTJ의 강력한 비전과 추진력이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "고든 램지",
+        "name_en": "Gordon Ramsay",
+        "field": "요리/방송",
+        "nationality": "영국",
+        "description": "최고를 추구하는 완벽주의적 셰프로, ENTJ의 높은 기준과 직설적 리더십 스타일이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "셰릴 샌드버그",
+        "name_en": "Sheryl Sandberg",
+        "field": "기업 경영",
+        "nationality": "미국",
+        "description": "Meta의 COO로서 조직을 효율적으로 이끈 리더로, ENTJ의 체계적 경영 능력과 추진력이 돋보입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "정주영",
+        "name_en": "Chung Ju-yung",
+        "field": "기업",
+        "nationality": "한국",
+        "description": "현대그룹을 창건한 한국 산업화의 상징으로, ENTJ의 불굴의 추진력과 거시적 비전이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "마거릿 대처",
+        "name_en": "Margaret Thatcher",
+        "field": "정치",
+        "nationality": "영국",
+        "description": "'철의 여인'으로 불린 영국 총리로, ENTJ의 단호한 결단력과 목표 지향적 리더십이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "나폴레옹 보나파르트",
+        "name_en": "Napoleon Bonaparte",
+        "field": "군사/정치",
+        "nationality": "프랑스",
+        "description": "유럽을 재편한 군사 천재이자 정치가로, ENTJ의 전략적 통솔력과 대담한 실행력이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "프랭클린 D. 루스벨트",
+        "name_en": "Franklin D. Roosevelt",
+        "field": "정치",
+        "nationality": "미국",
+        "description": "대공황과 제2차 세계대전을 이끈 대통령으로, ENTJ의 강력한 리더십과 전략적 판단력이 잘 보입니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ENTP": [
+      {
+        "name_ko": "토머스 에디슨",
+        "name_en": "Thomas Edison",
+        "field": "발명/기업",
+        "nationality": "미국",
+        "description": "수천 번의 실험으로 전구를 발명한 혁신가로, ENTP의 끊임없는 아이디어와 도전 정신이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "마크 트웨인",
+        "name_en": "Mark Twain",
+        "field": "문학",
+        "nationality": "미국",
+        "description": "날카로운 위트와 풍자로 미국 문학을 대표하는 작가로, ENTP의 재치와 비판적 사고가 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "유재석",
+        "name_en": "Yoo Jae-suk",
+        "field": "방송/코미디",
+        "nationality": "한국",
+        "description": "뛰어난 순발력과 재치로 대한민국 대표 MC가 된 방송인으로, ENTP의 임기응변과 소통 능력이 돋보입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "강호동",
+        "name_en": "Kang Ho-dong",
+        "field": "방송/스포츠",
+        "nationality": "한국",
+        "description": "씨름 챔피언에서 국민 MC로 변신한 방송인으로, ENTP의 에너지 넘치는 토론과 유머가 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "로버트 다우니 주니어",
+        "name_en": "Robert Downey Jr.",
+        "field": "배우",
+        "nationality": "미국",
+        "description": "아이언맨 역으로 유명한 카리스마 넘치는 배우로, ENTP의 재치 있는 임기응변과 매력이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "사샤 바론 코엔",
+        "name_en": "Sacha Baron Cohen",
+        "field": "코미디/배우",
+        "nationality": "영국",
+        "description": "파격적 캐릭터로 사회를 풍자하는 코미디언으로, ENTP의 도발적 유머와 창의적 사고가 돋보입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "닐 디그래스 타이슨",
+        "name_en": "Neil deGrasse Tyson",
+        "field": "천체물리학/과학 커뮤니케이터",
+        "nationality": "미국",
+        "description": "열정적 토론과 소통으로 과학을 대중화한 학자로, ENTP의 논쟁을 즐기는 지적 에너지가 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "INFJ": [
+      {
+        "name_ko": "마틴 루터 킹 주니어",
+        "name_en": "Martin Luther King Jr.",
+        "field": "인권 운동",
+        "nationality": "미국",
+        "description": "비폭력 인권 운동을 이끈 지도자로, INFJ의 강한 이상주의와 인류애적 비전이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "레이디 가가",
+        "name_en": "Lady Gaga",
+        "field": "음악/배우",
+        "nationality": "미국",
+        "description": "예술을 통해 사회적 메시지를 전하는 아티스트로, INFJ의 창의적 비전과 사회적 사명감이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "김연아",
+        "name_en": "Kim Yuna",
+        "field": "피겨 스케이팅",
+        "nationality": "한국",
+        "description": "완벽한 연기와 깊은 예술적 표현력으로 세계를 감동시킨 피겨 여왕으로, INFJ의 내면적 깊이가 돋보입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "니콜 키드먼",
+        "name_en": "Nicole Kidman",
+        "field": "배우",
+        "nationality": "호주",
+        "description": "깊은 내면 연기로 다양한 캐릭터를 소화하는 배우로, INFJ의 공감 능력과 내적 깊이가 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "넬슨 만델라",
+        "name_en": "Nelson Mandela",
+        "field": "정치/인권",
+        "nationality": "남아프리카공화국",
+        "description": "인종 화해와 평화를 위해 헌신한 지도자로, INFJ의 깊은 공감 능력과 비전이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "칼 융",
+        "name_en": "Carl Jung",
+        "field": "심리학",
+        "nationality": "스위스",
+        "description": "분석심리학의 창시자로 인간 내면을 깊이 탐구했으며, INFJ의 직관적 통찰력이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "도스토옙스키",
+        "name_en": "Fyodor Dostoevsky",
+        "field": "문학",
+        "nationality": "러시아",
+        "description": "인간 심리의 깊은 곳을 탐구한 위대한 소설가로, INFJ의 내면적 통찰과 이상주의가 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "INFP": [
+      {
+        "name_ko": "J.R.R. 톨킨",
+        "name_en": "J.R.R. Tolkien",
+        "field": "문학",
+        "nationality": "영국",
+        "description": "반지의 제왕으로 새로운 세계를 창조한 작가로, INFP의 풍부한 상상력과 이상주의가 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "오드리 헵번",
+        "name_en": "Audrey Hepburn",
+        "field": "배우/인도주의",
+        "nationality": "벨기에/영국",
+        "description": "우아한 연기와 유니세프 친선대사로 활동하며, INFP의 이상주의와 따뜻한 인류애가 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "아이유",
+        "name_en": "IU (Lee Ji-eun)",
+        "field": "음악/배우",
+        "nationality": "한국",
+        "description": "자작곡에 섬세한 감정을 담아내는 싱어송라이터로, INFP의 깊은 감수성과 예술적 표현이 돋보입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "최우식",
+        "name_en": "Choi Woo-shik",
+        "field": "배우",
+        "nationality": "한국",
+        "description": "자연스러운 감정 연기로 사랑받는 배우로, INFP의 진솔한 내면 표현과 따뜻한 감성이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "윌리엄 셰익스피어",
+        "name_en": "William Shakespeare",
+        "field": "문학/극작",
+        "nationality": "영국",
+        "description": "인간 감정의 복잡함을 작품에 담아낸 대문호로, INFP의 풍부한 내면 세계와 감수성이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "팀 버튼",
+        "name_en": "Tim Burton",
+        "field": "영화 감독",
+        "nationality": "미국",
+        "description": "독특한 상상 세계를 영화로 구현하는 감독으로, INFP의 풍부한 내면 세계와 독창성이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ENFJ": [
+      {
+        "name_ko": "오프라 윈프리",
+        "name_en": "Oprah Winfrey",
+        "field": "방송/미디어",
+        "nationality": "미국",
+        "description": "공감 능력과 소통으로 미국 대표 토크쇼 호스트가 된 인물로, ENFJ의 타인을 이끄는 힘이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "말라라 유사프자이",
+        "name_en": "Malala Yousafzai",
+        "field": "인권 운동/교육",
+        "nationality": "파키스탄",
+        "description": "여성 교육권을 위해 목소리를 낸 최연소 노벨상 수상자로, ENFJ의 강한 사명감이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "RM (김남준)",
+        "name_en": "RM (Kim Nam-joon)",
+        "field": "음악 (BTS)",
+        "nationality": "한국",
+        "description": "BTS의 리더로서 팀을 이끌며 음악에 사회적 메시지를 담는 아티스트로, ENFJ의 선도적 리더십이 돋보입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "유인나",
+        "name_en": "Yoo In-na",
+        "field": "배우/방송",
+        "nationality": "한국",
+        "description": "따뜻한 소통 능력과 공감력으로 사랑받는 배우로, ENFJ의 타인을 배려하는 따뜻한 성격이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "버락 오바마",
+        "name_en": "Barack Obama",
+        "field": "정치",
+        "nationality": "미국",
+        "description": "카리스마 넘치는 연설로 사람들에게 희망을 준 대통령으로, ENFJ의 영감을 주는 리더십이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "마하트마 간디",
+        "name_en": "Mahatma Gandhi",
+        "field": "독립 운동/정치",
+        "nationality": "인도",
+        "description": "비폭력 저항으로 인도 독립을 이끈 지도자로, ENFJ의 타인을 감화시키는 도덕적 리더십이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "매튜 맥커너히",
+        "name_en": "Matthew McConaughey",
+        "field": "배우",
+        "nationality": "미국",
+        "description": "깊은 인간미와 철학적 사고로 알려진 배우로, ENFJ의 타인과의 깊은 유대감이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ENFP": [
+      {
+        "name_ko": "로빈 윌리엄스",
+        "name_en": "Robin Williams",
+        "field": "코미디/배우",
+        "nationality": "미국",
+        "description": "자유로운 즉흥 연기와 따뜻한 감성의 배우로, ENFP의 넘치는 에너지와 창의성이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "월트 디즈니",
+        "name_en": "Walt Disney",
+        "field": "엔터테인먼트",
+        "nationality": "미국",
+        "description": "꿈과 상상력으로 세계적 엔터테인먼트 제국을 만든 혁신가로, ENFP의 무한한 창의력이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "박보영",
+        "name_en": "Park Bo-young",
+        "field": "배우",
+        "nationality": "한국",
+        "description": "밝고 에너지 넘치는 매력으로 사랑받는 배우로, ENFP의 긍정적이고 활기찬 에너지가 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "이광수",
+        "name_en": "Lee Kwang-soo",
+        "field": "배우/방송",
+        "nationality": "한국",
+        "description": "유쾌한 에너지와 솔직한 매력으로 사랑받는 배우로, ENFP의 자유롭고 순수한 열정이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "엘렌 드제너러스",
+        "name_en": "Ellen DeGeneres",
+        "field": "코미디/방송",
+        "nationality": "미국",
+        "description": "밝은 에너지와 유머로 대중과 소통하는 방송인으로, ENFP의 긍정적이고 자유로운 성격이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "쿠엔틴 타란티노",
+        "name_en": "Quentin Tarantino",
+        "field": "영화 감독",
+        "nationality": "미국",
+        "description": "열정적이고 파격적인 영화를 만드는 감독으로, ENFP의 자유로운 창의성과 에너지가 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ISTJ": [
+      {
+        "name_ko": "워런 버핏",
+        "name_en": "Warren Buffett",
+        "field": "투자/기업",
+        "nationality": "미국",
+        "description": "장기적이고 체계적인 투자 철학으로 성공한 투자의 귀재로, ISTJ의 신중하고 일관된 접근이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "손흥민",
+        "name_en": "Son Heung-min",
+        "field": "축구",
+        "nationality": "한국",
+        "description": "꾸준한 자기 관리와 성실한 훈련으로 세계적 선수가 된 축구 스타로, ISTJ의 근면함과 책임감이 돋보입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "이순신",
+        "name_en": "Yi Sun-sin",
+        "field": "군사",
+        "nationality": "한국",
+        "description": "철저한 전략과 강한 책임감으로 나라를 지킨 명장으로, ISTJ의 의무감과 체계적 실행력이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "나탈리 포트먼",
+        "name_en": "Natalie Portman",
+        "field": "배우/학자",
+        "nationality": "이스라엘/미국",
+        "description": "하버드 졸업과 연기를 병행한 지적인 배우로, ISTJ의 규칙적이고 성실한 자기 관리가 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "조지 워싱턴",
+        "name_en": "George Washington",
+        "field": "정치/군사",
+        "nationality": "미국",
+        "description": "미국 초대 대통령으로 원칙과 의무를 중시한 지도자이며, ISTJ의 책임감과 신뢰성이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "앙겔라 메르켈",
+        "name_en": "Angela Merkel",
+        "field": "정치",
+        "nationality": "독일",
+        "description": "신중하고 안정적 리더십으로 독일을 이끈 총리로, ISTJ의 실용적이고 체계적인 접근이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "제프 베이조스",
+        "name_en": "Jeff Bezos",
+        "field": "기업/기술",
+        "nationality": "미국",
+        "description": "Amazon을 체계적으로 성장시킨 기업가로, ISTJ의 데이터 중심적 의사결정과 꾸준함이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "콘돌리자 라이스",
+        "name_en": "Condoleezza Rice",
+        "field": "정치/학계",
+        "nationality": "미국",
+        "description": "철저한 준비와 원칙적 접근으로 알려진 정치인으로, ISTJ의 체계적이고 책임감 있는 성격이 잘 보입니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ISFJ": [
+      {
+        "name_ko": "비욘세",
+        "name_en": "Beyoncé",
+        "field": "음악",
+        "nationality": "미국",
+        "description": "가족과 팬을 향한 깊은 애정과 완벽한 무대 준비로 유명하며, ISFJ의 헌신과 성실함이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "앤 해서웨이",
+        "name_en": "Anne Hathaway",
+        "field": "배우",
+        "nationality": "미국",
+        "description": "성실하고 따뜻한 성격으로 알려진 배우로, ISFJ의 책임감 있는 태도와 배려심이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "송혜교",
+        "name_en": "Song Hye-kyo",
+        "field": "배우",
+        "nationality": "한국",
+        "description": "조용하지만 깊은 감정 연기로 사랑받는 배우로, ISFJ의 따뜻하고 섬세한 성격이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "이영애",
+        "name_en": "Lee Young-ae",
+        "field": "배우",
+        "nationality": "한국",
+        "description": "대장금으로 아시아를 감동시킨 배우로, ISFJ의 조용한 헌신과 따뜻한 내면이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "마더 테레사",
+        "name_en": "Mother Teresa",
+        "field": "종교/자선",
+        "nationality": "인도 (알바니아 출신)",
+        "description": "평생을 가난한 이들을 위해 헌신한 성인으로, ISFJ의 따뜻한 봉사 정신과 헌신이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "엘리자베스 2세",
+        "name_en": "Queen Elizabeth II",
+        "field": "왕실",
+        "nationality": "영국",
+        "description": "70년간 영국 왕실을 묵묵히 지켜온 군주로, ISFJ의 전통 존중과 의무감이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "빈센트 반 고흐",
+        "name_en": "Vincent van Gogh",
+        "field": "미술",
+        "nationality": "네덜란드",
+        "description": "깊은 감성과 따뜻한 시선으로 세상을 그린 화가로, ISFJ의 내면적 감수성과 헌신이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "셀레나 고메즈",
+        "name_en": "Selena Gomez",
+        "field": "음악/배우",
+        "nationality": "미국",
+        "description": "팬들을 진심으로 챙기는 따뜻한 아티스트로, ISFJ의 헌신적이고 배려 깊은 성격이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ESTJ": [
+      {
+        "name_ko": "주디 쉐인들린",
+        "name_en": "Judge Judy (Judy Sheindlin)",
+        "field": "법률/방송",
+        "nationality": "미국",
+        "description": "엄격하고 공정한 판결로 유명한 TV 판사로, ESTJ의 규칙 중시와 직설적 소통 스타일이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "엠마 왓슨",
+        "name_en": "Emma Watson",
+        "field": "배우/사회운동",
+        "nationality": "영국",
+        "description": "체계적으로 페미니즘 운동에 참여하는 배우로, ESTJ의 원칙적이고 조직적인 실행력이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "박지성",
+        "name_en": "Park Ji-sung",
+        "field": "축구",
+        "nationality": "한국",
+        "description": "철저한 자기 관리와 팀을 위한 헌신으로 유명한 축구 선수로, ESTJ의 책임감과 조직적 플레이가 돋보입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "김연경",
+        "name_en": "Kim Yeon-koung",
+        "field": "배구",
+        "nationality": "한국",
+        "description": "팀의 중심으로 강한 리더십을 발휘한 배구 선수로, ESTJ의 책임감 있고 체계적인 리더십이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "존 D. 록펠러",
+        "name_en": "John D. Rockefeller",
+        "field": "기업/자선",
+        "nationality": "미국",
+        "description": "체계적 경영으로 석유 산업을 지배한 기업가로, ESTJ의 조직 관리 능력과 실행력이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "사이먼 코웰",
+        "name_en": "Simon Cowell",
+        "field": "엔터테인먼트/방송",
+        "nationality": "영국",
+        "description": "직설적 피드백과 효율적 사업 운영으로 유명한 프로듀서로, ESTJ의 솔직함과 결과 지향성이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "드와이트 D. 아이젠하워",
+        "name_en": "Dwight D. Eisenhower",
+        "field": "군사/정치",
+        "nationality": "미국",
+        "description": "D-Day를 지휘한 군사 전략가이자 대통령으로, ESTJ의 조직적 리더십과 실행력이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ESFJ": [
+      {
+        "name_ko": "테일러 스위프트",
+        "name_en": "Taylor Swift",
+        "field": "음악",
+        "nationality": "미국",
+        "description": "팬들과의 깊은 유대감과 세심한 배려로 유명한 아티스트로, ESFJ의 따뜻한 사교성과 헌신이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "에드 시런",
+        "name_en": "Ed Sheeran",
+        "field": "음악",
+        "nationality": "영국",
+        "description": "따뜻한 감성의 노래로 많은 사람들과 소통하는 싱어송라이터로, ESFJ의 공감 능력과 친화력이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "전현무",
+        "name_en": "Jun Hyun-moo",
+        "field": "방송",
+        "nationality": "한국",
+        "description": "다정하고 세심한 진행으로 사랑받는 MC로, ESFJ의 사교적이고 배려 깊은 소통 능력이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "수지 (배수지)",
+        "name_en": "Suzy (Bae Suzy)",
+        "field": "배우/음악",
+        "nationality": "한국",
+        "description": "밝고 친근한 이미지로 국민 첫사랑이 된 배우로, ESFJ의 따뜻한 사교성과 다정한 성격이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "제니퍼 가너",
+        "name_en": "Jennifer Garner",
+        "field": "배우",
+        "nationality": "미국",
+        "description": "가족 중심적 가치관과 따뜻한 성격으로 알려진 배우로, ESFJ의 배려심과 조화를 추구하는 성격이 잘 보입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "엘튼 존",
+        "name_en": "Elton John",
+        "field": "음악",
+        "nationality": "영국",
+        "description": "화려한 무대와 진정성 있는 소통으로 팬을 사로잡는 아티스트로, ESFJ의 사교성과 따뜻함이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "제시카 알바",
+        "name_en": "Jessica Alba",
+        "field": "배우/사업",
+        "nationality": "미국",
+        "description": "가족 건강을 위한 사업을 시작한 배우로, ESFJ의 타인을 돌보는 따뜻한 성격이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ISTP": [
+      {
+        "name_ko": "마이클 조던",
+        "name_en": "Michael Jordan",
+        "field": "농구",
+        "nationality": "미국",
+        "description": "냉철한 승부 감각과 탁월한 신체 능력의 농구 황제로, ISTP의 실용적 문제 해결과 집중력이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "브루스 리",
+        "name_en": "Bruce Lee",
+        "field": "무술/배우",
+        "nationality": "미국/홍콩",
+        "description": "무술의 실용성을 추구하며 절권도를 창시한 무술가로, ISTP의 실전적 사고와 적응력이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "톰 크루즈",
+        "name_en": "Tom Cruise",
+        "field": "배우",
+        "nationality": "미국",
+        "description": "직접 스턴트를 소화하며 도전을 즐기는 배우로, ISTP의 실전적 감각과 대담함이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "류현진",
+        "name_en": "Ryu Hyun-jin",
+        "field": "야구",
+        "nationality": "한국",
+        "description": "냉철한 마운드 위의 기술자로, ISTP의 침착한 상황 대처와 정밀한 기술 활용이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "클린트 이스트우드",
+        "name_en": "Clint Eastwood",
+        "field": "배우/감독",
+        "nationality": "미국",
+        "description": "과묵하지만 행동으로 보여주는 배우이자 감독으로, ISTP의 독립적이고 실용적인 성격이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "베어 그릴스",
+        "name_en": "Bear Grylls",
+        "field": "모험가/방송",
+        "nationality": "영국",
+        "description": "극한 환경에서 생존 기술을 보여주는 모험가로, ISTP의 실용적 문제 해결 능력이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ISFP": [
+      {
+        "name_ko": "프리다 칼로",
+        "name_en": "Frida Kahlo",
+        "field": "미술",
+        "nationality": "멕시코",
+        "description": "고통과 열정을 캔버스에 담아낸 화가로, ISFP의 깊은 감수성과 진정성 있는 자기 표현이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "키아누 리브스",
+        "name_en": "Keanu Reeves",
+        "field": "배우",
+        "nationality": "캐나다",
+        "description": "겸손하고 조용한 성격으로 알려진 배우로, ISFP의 따뜻한 내면과 자유로운 영혼이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "뷔 (김태형)",
+        "name_en": "V (Kim Tae-hyung)",
+        "field": "음악 (BTS)",
+        "nationality": "한국",
+        "description": "독특한 예술 감각과 자유로운 영혼의 아티스트로, ISFP의 감각적 표현과 개성이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "공유",
+        "name_en": "Gong Yoo",
+        "field": "배우",
+        "nationality": "한국",
+        "description": "조용하지만 깊은 감성 연기를 보여주는 배우로, ISFP의 내면적 감수성과 진정성이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "밥 딜런",
+        "name_en": "Bob Dylan",
+        "field": "음악",
+        "nationality": "미국",
+        "description": "자유로운 영혼으로 음악의 경계를 넘나든 아티스트로, ISFP의 예술적 독립성과 개인적 가치가 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "데이비드 보위",
+        "name_en": "David Bowie",
+        "field": "음악",
+        "nationality": "영국",
+        "description": "끊임없이 변화하며 자신을 표현한 아티스트로, ISFP의 예술적 자유로움과 개성이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "라나 델 레이",
+        "name_en": "Lana Del Rey",
+        "field": "음악",
+        "nationality": "미국",
+        "description": "몽환적 음악 세계로 자신만의 미학을 구축한 아티스트로, ISFP의 감각적 표현과 내면적 깊이가 돋보입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "모차르트",
+        "name_en": "Wolfgang Amadeus Mozart",
+        "field": "음악 (클래식)",
+        "nationality": "오스트리아",
+        "description": "천재적 감각으로 음악을 창조한 작곡가로, ISFP의 본능적 예술성과 자유로운 표현이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ESTP": [
+      {
+        "name_ko": "마돈나",
+        "name_en": "Madonna",
+        "field": "음악",
+        "nationality": "미국",
+        "description": "끊임없이 도전하고 변화하는 팝의 여왕으로, ESTP의 대담함과 현실 장악력이 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "드웨인 존슨",
+        "name_en": "Dwayne Johnson",
+        "field": "배우/스포츠",
+        "nationality": "미국",
+        "description": "프로레슬러에서 할리우드 스타로 변신한 행동파로, ESTP의 에너지와 실행력이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "추성훈",
+        "name_en": "Choo Sung-hoon",
+        "field": "격투기/방송",
+        "nationality": "한국",
+        "description": "격투기 챔피언에서 예능인으로 활약하며, ESTP의 대담한 도전 정신과 현실 감각이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "이승기",
+        "name_en": "Lee Seung-gi",
+        "field": "배우/음악/방송",
+        "nationality": "한국",
+        "description": "다양한 분야에서 능숙하게 활동하는 만능 엔터테이너로, ESTP의 적응력과 행동력이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "어니스트 헤밍웨이",
+        "name_en": "Ernest Hemingway",
+        "field": "문학",
+        "nationality": "미국",
+        "description": "모험적 삶과 간결한 문체의 작가로, ESTP의 행동 지향적이고 현실적인 성격이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "잭 니클라우스",
+        "name_en": "Jack Nicholson",
+        "field": "골프",
+        "nationality": "미국",
+        "description": "강렬한 카리스마와 자유분방한 매력의 배우로, ESTP의 현재를 즐기는 대담함이 잘 나타납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ],
+    "ESFP": [
+      {
+        "name_ko": "아델",
+        "name_en": "Adele",
+        "field": "음악",
+        "nationality": "영국",
+        "description": "진솔한 감정과 유쾌한 성격으로 사랑받는 가수로, ESFP의 풍부한 감정 표현과 따뜻함이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "싸이 (박재상)",
+        "name_en": "PSY (Park Jae-sang)",
+        "field": "음악",
+        "nationality": "한국",
+        "description": "강남스타일로 전 세계를 열광시킨 엔터테이너로, ESFP의 폭발적 무대 에너지와 유머가 대표적입니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "이효리",
+        "name_en": "Lee Hyori",
+        "field": "음악/방송",
+        "nationality": "한국",
+        "description": "자유분방한 매력과 무대 장악력으로 사랑받는 가수로, ESFP의 자유로운 에너지와 쇼맨십이 잘 드러납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "브루노 마스",
+        "name_en": "Bruno Mars",
+        "field": "음악",
+        "nationality": "미국",
+        "description": "화려한 퍼포먼스와 다양한 장르를 소화하는 아티스트로, ESFP의 무대 매력과 감각적 표현이 잘 나타납니다.",
+        "verified": false,
+        "featured": true
+      },
+      {
+        "name_ko": "마릴린 먼로",
+        "name_en": "Marilyn Monroe",
+        "field": "배우",
+        "nationality": "미국",
+        "description": "빛나는 무대 매력과 자유로운 성격의 배우로, ESFP의 사람들을 매료시키는 에너지가 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "엘비스 프레슬리",
+        "name_en": "Elvis Presley",
+        "field": "음악",
+        "nationality": "미국",
+        "description": "록큰롤의 제왕으로 무대에서 폭발적 에너지를 보여준 가수로, ESFP의 쇼맨십과 열정이 대표적입니다.",
+        "verified": false,
+        "featured": false
+      },
+      {
+        "name_ko": "제이미 올리버",
+        "name_en": "Jamie Oliver",
+        "field": "요리/방송",
+        "nationality": "영국",
+        "description": "밝은 에너지로 요리를 즐기며 소통하는 셰프로, ESFP의 활기차고 즐거움을 추구하는 성격이 잘 드러납니다.",
+        "verified": false,
+        "featured": false
+      }
+    ]
+  }
+}
