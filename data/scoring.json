@@ -1,8 +1,11 @@
 {
   "_meta": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "generatedAt": "2026-04-29",
-    "description": "성격 유형 검사 점수 산출 규칙"
+    "description": "성격 유형 검사 점수 산출 규칙",
+    "updatedAt": "2026-10-29",
+    "note": "v1.1.0: 동점(축 합계 0) 추가 질문 규칙과 경계 표시 기준 추가. 근거: docs/plan/user_flow_spec.md §6",
+    "spec": "docs/plan/user_flow_spec.md"
   },
   "method": "centered-sum",
   "centerValue": 4,
@@ -58,17 +61,33 @@
       "2. 역채점 문항은 부호를 반전합니다",
       "3. 축별로 15개 문항의 중심화 점수를 합산합니다",
       "4. 합이 양수이면 첫번째 극, 음수이면 두번째 극입니다",
-      "5. 강도(%): |합계| ÷ 45 × 100"
+      "5. 강도(%): |합계| ÷ 45 × 100 (반올림)",
+      "6. 합이 0(동점)인 축은 questions.json 의 tieBreakers 2지선다로 정합니다. 합계와 강도는 0 그대로 두고 tieBroken 으로 표시합니다",
+      "7. 강도가 borderline.maxPercentage 미만인 축은 borderline 으로 표시합니다(경계 문구 노출)"
     ]
+  },
+  "tieBreak": {
+    "method": "forced-choice",
+    "when": "axis sum == 0",
+    "source": "questions.json#tieBreakers",
+    "keepScore": true,
+    "description_ko": "동점인 축에만 결과 직전에 2지선다 문항 1개를 보여 주고, 고른 극으로 판정한다. 중립 선택지는 없다."
+  },
+  "borderline": {
+    "maxPercentage": 10,
+    "description_ko": "강도가 10% 미만(합계 -4 ~ +4)이면 두 성향이 비슷하게 섞여 있다는 문구를 붙인다."
   },
   "resultFormat": {
     "typeCode": "4-letter string (e.g., INTJ)",
+    "source": "test | self (유형 직접 선택이면 axes 없음)",
+    "scoringVersion": "이 파일의 _meta.version",
     "axes": {
-      "EI": { "pole": "E or I", "score": "raw sum", "percentage": "0-100" },
-      "SN": { "pole": "S or N", "score": "raw sum", "percentage": "0-100" },
-      "TF": { "pole": "T or F", "score": "raw sum", "percentage": "0-100" },
-      "JP": { "pole": "J or P", "score": "raw sum", "percentage": "0-100" }
-    }
+      "EI": { "pole": "E or I", "score": "raw sum", "percentage": "0-100", "borderline": "boolean", "tieBroken": "boolean" },
+      "SN": { "pole": "S or N", "score": "raw sum", "percentage": "0-100", "borderline": "boolean", "tieBroken": "boolean" },
+      "TF": { "pole": "T or F", "score": "raw sum", "percentage": "0-100", "borderline": "boolean", "tieBroken": "boolean" },
+      "JP": { "pole": "J or P", "score": "raw sum", "percentage": "0-100", "borderline": "boolean", "tieBroken": "boolean" }
+    },
+    "completedAt": "ISO 8601 string"
   },
   "turbulence": {
     "enabled": false,

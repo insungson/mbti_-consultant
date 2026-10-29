@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-10-29",
+    "description": "리포트 밖 화면(랜딩·검사·동점 질문·결과 진입·공유·유형 선택·상담 게이트·상담 안내·대화·오류)의 고정 문구. 리포트 섹션 문구는 report-sections.json, 상담사 인사말과 상담 자원은 chatbot-prompts.json 에 있다.",
+    "spec": "docs/plan/user_flow_spec.md, docs/plan/copy_tone_guide.md",
+    "placeholders": "{answered} 답한 문항 수, {page}/{totalPages} 페이지, {count}/{current} 동점 질문 수, {nickname}/{typeCode} 유형, {max} 최대 글자 수"
+  },
+  "landing": {
+    "headline": "나를 정확히 알아봐 주는 16가지 성격 유형 검사",
+    "subline": "검사로 나를 알고, 마음에 걸리는 고민은 세 상담사와 나눠요.",
+    "startButton": "검사 시작하기",
+    "startHint": "60문항 · 약 10분",
+    "knowTypeButton": "이미 내 유형을 알아요",
+    "resumeBanner": "지난번에 {answered}문항까지 답했어요.",
+    "resumeButton": "이어서 하기",
+    "restartButton": "처음부터",
+    "myResultButton": "내 결과 다시 보기",
+    "privacyLink": "개인정보 안내"
+  },
+  "test": {
+    "introNote": "정답은 없어요. 떠오르는 대로 고르면 돼요.",
+    "scaleEnds": { "left": "동의하지 않아요", "right": "동의해요" },
+    "progress": "{page} / {totalPages}",
+    "prevButton": "이전",
+    "nextButton": "다음",
+    "finishButton": "결과 보기",
+    "pageIncomplete": "이 페이지 문항에 모두 답하면 다음으로 넘어갈 수 있어요.",
+    "versionReset": "검사가 조금 바뀌어서 처음부터 시작해요."
+  },
+  "tieBreak": {
+    "title": "거의 다 왔어요! 하나만 더 골라 주세요",
+    "titleMany": "거의 다 왔어요! {count}개만 더 골라 주세요",
+    "body": "점수가 딱 반반으로 나온 성향이 있어요. 둘 중 나와 더 가까운 쪽을 골라 주세요.",
+    "progress": "{current} / {count}"
+  },
+  "calculating": {
+    "text": "결과를 정리하고 있어요",
+    "durationMs": 1500
+  },
+  "result": {
+    "retakeButton": "다시 검사하기",
+    "retakeConfirm": "다시 검사하면 지금 결과는 새 결과로 바뀌어요. 시작할까요?",
+    "retakeConfirmButton": "다시 검사하기",
+    "cancelButton": "그만두기"
+  },
+  "share": {
+    "button": "결과 공유하기",
+    "copied": "링크를 복사했어요",
+    "shareTitle": "{nickname}({typeCode}) 유형 리포트",
+    "shareText": "나와 닮은 성격 유형을 찾았어요. 같이 검사해 볼래요?",
+    "receivedBanner": "이 유형이 궁금했나요?",
+    "receivedButton": "나도 검사해 보기"
+  },
+  "selfSelect": {
+    "title": "내 유형 고르기",
+    "body": "알고 있는 유형을 골라 주세요. 리포트와 상담을 바로 이용할 수 있어요.",
+    "replaceConfirm": "검사 결과 대신 이 유형으로 볼까요?",
+    "replaceConfirmButton": "이 유형으로 보기",
+    "cancelButton": "그만두기"
+  },
+  "typeGate": {
+    "title": "먼저 내 유형이 필요해요",
+    "body": "상담사가 맞춤 조언을 하려면 성격 유형을 알아야 해요.",
+    "testButton": "검사하기",
+    "pickButton": "내 유형 고르기"
+  },
+  "chatNotice": {
+    "title": "상담을 시작하기 전에",
+    "items": [
+      "상담사는 AI예요. 답변을 만들기 위해 대화 내용이 외부 AI 서비스로 전달돼요.",
+      "이름·연락처·주소·학교처럼 나를 알아볼 수 있는 정보는 적지 말아 주세요.",
+      "대화는 이 기기에만 저장되고, 서비스 서버에는 남지 않아요.",
+      "전문 심리 상담이나 진단을 대신하지 않아요."
+    ],
+    "adultButton": "만 14세 이상이에요",
+    "minorButton": "만 14세 미만이에요"
+  },
+  "under14": {
+    "title": "지금은 만 14세 이상만 AI 상담을 이용할 수 있어요",
+    "body": "리포트는 그대로 볼 수 있어요. 고민이 있을 때는 청소년 상담 선생님과 이야기해 보세요.",
+    "reportButton": "내 리포트 보기",
+    "resourceName": "청소년상담"
+  },
+  "chat": {
+    "inputPlaceholder": "고민을 편하게 적어 주세요",
+    "sendButton": "보내기",
+    "switchLabel": "상담사 바꾸기",
+    "partnerChip": "상대 유형 알려주기",
+    "partnerLabel": "상대: {typeCode}",
+    "clearButton": "대화 지우기",
+    "clearConfirm": "이 상담사와 나눈 대화를 모두 지울까요? 지운 대화는 되돌릴 수 없어요."
+  },
+  "chatErrors": {
+    "provider": "지금 상담사와 연결이 잘 안 돼요. 잠시 후 다시 보내 주세요.",
+    "retryButton": "다시 보내기",
+    "tooLong": "{max}자까지 보낼 수 있어요.",
+    "dailyLimit": "오늘은 이야기를 많이 나눴어요. 내일 다시 만나요."
+  },
+  "helpButton": {
+    "label": "도움받을 곳",
+    "sheetTitle": "지금 이야기를 들어 줄 수 있는 곳",
+    "sheetBody": "혼자 견디기 힘들 때는 연락해 보세요. 아래 번호는 모두 24시간 열려 있어요."
+  },
+  "crisisCard": {
+    "title": "혼자 견디지 않아도 돼요",
+    "body": "지금 바로 이야기를 들어 줄 수 있는 곳이 있어요. 아래 번호는 모두 24시간 연결돼요."
+  }
+}

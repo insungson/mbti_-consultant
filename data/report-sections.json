@@ -1,7 +1,9 @@
 {
   "_meta": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "generatedAt": "2026-10-28",
+    "updatedAt": "2026-10-29",
+    "note": "v1.1.0: 성향 스펙트럼의 경계·동점 표시 문구와 유형 직접 선택 시 대체 카드 추가. 근거: docs/plan/user_flow_spec.md §6.3·§7.2",
     "description": "결과 리포트 공통 메타 - 섹션 순서·화면 제목·상담 연결 CTA·성향 축 설명·궁합 라벨·고정 안내 문구. 유형별 콘텐츠는 profiles.json 에 있다.",
     "spec": "docs/plan/report_spec.md"
   },
@@ -64,6 +66,9 @@
   "axes": {
     "displayRule": "검사 결과의 축별 강도(0~100)를 양극 비율로 바꿔 보여 준다. 우세 쪽 = 50 + 강도 ÷ 2 (반올림), 반대쪽 = 100 - 우세 쪽.",
     "turbulence": "scoring.json 의 turbulence.enabled 가 false 라 A/T 는 표시하지 않는다.",
+    "borderlineRule": "축 결과의 borderline 이 true(강도가 scoring.json borderline.maxPercentage 미만)이면 borderlineNote 를, tieBroken 이 true 이면 tieBrokenNote 를 그 축 아래에 함께 보여 준다.",
+    "borderlineNote": "두 성향이 비슷하게 섞여 있어요. 상황에 따라 양쪽 모습이 모두 나올 수 있어요.",
+    "tieBrokenNote": "점수가 딱 반반이라, 추가 질문에서 고른 쪽으로 정했어요.",
     "poles": {
       "E": { "label": "외향형", "line": "사람들과 어울리며 에너지를 채우는 편이에요" },
       "I": { "label": "내향형", "line": "혼자만의 시간에 에너지를 채우는 편이에요" },
@@ -74,6 +79,12 @@
       "J": { "label": "판단형", "line": "계획을 세우고 정리된 상태에서 편안한 편이에요" },
       "P": { "label": "인식형", "line": "열어 두고 상황에 맞춰 움직일 때 편안한 편이에요" }
     }
+  },
+  "selfSelectedAxesCard": {
+    "rule": "result.source 가 self(유형 직접 선택)이면 axes 섹션 자리에 이 카드를 보여 준다.",
+    "title": "내 성향 스펙트럼도 궁금하다면",
+    "body": "검사를 하면 네 가지 성향이 각각 어느 쪽으로 얼마나 기울어 있는지 보여 드려요. 60문항, 약 10분이면 돼요.",
+    "button": "검사로 확인해 보기"
   },
   "compatLevelLabels": {
     "excellent": "잘 통하는 사이",

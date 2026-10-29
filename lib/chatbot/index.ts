@@ -136,13 +136,18 @@ export async function listStarterQuestions(personaId: string): Promise<string[]>
   return getStarterQuestions(prompts, personaId);
 }
 
-/** 사용 가능한 페르소나 메타(라벨 등) 목록 — UI 탭 구성용 */
-export async function listPersonas(): Promise<{ id: string; label: string; role: string }[]> {
+/** 사용 가능한 페르소나 메타(이름·라벨·담당 범위·인사말) 목록 — 상담 허브·대화 헤더 구성용 */
+export async function listPersonas(): Promise<
+  { id: string; personaName: string; label: string; role: string; scope?: string; greeting?: string }[]
+> {
   const prompts = await getPrompts();
   return Object.values(prompts.personas).map((p) => ({
     id: p.id,
+    personaName: p.personaName,
     label: p.label,
     role: p.role,
+    scope: p.scope,
+    greeting: p.greeting,
   }));
 }
 

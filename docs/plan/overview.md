@@ -36,4 +36,4 @@
 본 `overview.md` 문서를 뼈대로 삼아, 향후 `docs/plan/` 폴더 하위에 각 기능별 상세 기획서를 분리하여 작성합니다.
 - `docs/plan/report_spec.md`: 리포트 구성안 및 한국/일본 문화 차이 데이터 명세서
 - `docs/plan/chatbot_spec.md`: 3가지 AI 챗봇 페르소나 프롬프트 설계 및 윤리/안전 가이드라인
-- `docs/plan/test_flow.md`: MBTI 테스트 플로우 및 채점 로직 설계
+- `docs/plan/user_flow_spec.md`: 검사 → 리포트 → 상담 전체 유저 플로우, 검사 진행·채점 규칙(동점·경계), 저장·개인정보 (당초 `test_flow.md`로 계획했던 범위를 포함)

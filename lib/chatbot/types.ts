@@ -21,6 +21,8 @@ export interface CrisisResource {
   use: string;
   audience?: string;
   hours?: string;
+  /** UI에서 바로 연결할 링크 정보 (tel:/sms:). 프롬프트에는 contact 문자열만 쓴다 */
+  actions?: { type: "tel" | "sms"; value: string; label: string }[];
 }
 
 /** data/chatbot-prompts.json 의 shared.crisisProtocol */
@@ -62,6 +64,8 @@ export interface Persona {
   /** true면 관계 답변 시 compatibility.json 도 참조 */
   needsCompatibility?: boolean;
   starterQuestions: string[];
+  /** 대화 화면 첫 말풍선용 정적 인사말. UI 전용이며 모델에 보내지 않는다. {nickname} 치환 */
+  greeting?: string;
   /** 담당 범위. 다른 페르소나의 [다른 상담사 연결] 안내에도 쓰인다 */
   scope?: string;
   speechStyle?: SpeechStyle;
