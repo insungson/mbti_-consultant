@@ -22,7 +22,7 @@
 
 ## 🚦 현재 진행 상황
 
-> 한 줄 요약: **데이터 + 검사 채점·챗봇 로직 레이어와 유저 플로우 설계는 완성**, **Next.js 앱(UI)은 미착수** 상태입니다.
+> 한 줄 요약: **데이터 + 검사 채점·챗봇 로직 레이어, 유저 플로우 설계, 디자인 1차 시안은 완성**, **Next.js 앱(UI)은 미착수** 상태입니다.
 
 ### ✅ 완료 — 데이터 레이어 (`data/`)
 | 파일 | 상태 | 내용 |
@@ -49,11 +49,21 @@
 | `data/ai-providers.json` | 무료 AI 모델 폴백 체인 설정 (토큰 소진 시 자동 전환) |
 | `lib/chatbot/*.ts` | 프레임워크 무관 순수 TS 모듈 (프롬프트 조립 + 폴백 호출 + 위기 감지 안전망) |
 
+### ✅ 완료 — 디자인 1차 확정 (`docs/design/`, 2026-10-30)
+| 파일 | 내용 |
+|------|------|
+| `docs/design/README.md` | 디자인 폴더 안내. **여기부터 읽기** |
+| `docs/design/design_spec.md` | 세계관 '마음 정원'(가칭 서비스명 '피어나') · 캐릭터 · 공통 규칙 · 화면 8종 상세 · 새 문구 · 시안 없는 화면 |
+| `docs/design/type_naming.md` | 16유형 → 16가지 꽃 · 네 계절 정원 매핑 (**초안**, 확정 전에는 데이터 별칭을 바꾸지 않음) |
+| `docs/design/tokens.json` | 색 · 계절 색 · 글꼴(고운바탕/고운돋움/개구) · 글자 크기 · 모서리 · 크기 |
+| `docs/design/mockups/round2/` | 시안 보드 5장 (PNG + 브라우저로 여는 HTML) |
+| `docs/design/assets/` | 꽃 16종 · 캐릭터 4종(움 · 지온 · 하랑 · 다온) SVG 스케치 |
+
 ### ⬜ 미착수 — 애플리케이션 레이어
 - Next.js 앱 스캐폴딩 (`package.json`, `app/`, `next.config.*` 없음)
 - 검사 플로우 UI(문항 → 점수 계산 → 결과), 결과/프로필/궁합 페이지
 - 챗봇 API 라우트 배선 및 채팅 UI
-- 화면 시안은 Claude 데스크탑에서 함께 보며 조정한 뒤 코드에 옮긴다 (`docs/plan/user_flow_spec.md` §14)
+- 화면은 `docs/design/` 시안을 기준으로 만들고, 실제 화면을 Claude 데스크탑에서 함께 보며 조정한다 (`docs/plan/user_flow_spec.md` §14)
 
 ---
 
@@ -89,7 +99,8 @@ mbti_nextjs/
 ├── scripts/
 │   └── check_report_copy.py   # 리포트 카피 검사 (python3, 의존성 없음)
 ├── docs/
-│   └── plan/                  # 기획 문서 (overview, chatbot_spec, report_spec, copy_tone_guide, user_flow_spec)
+│   ├── plan/                  # 기획 문서 (overview, chatbot_spec, report_spec, copy_tone_guide, user_flow_spec)
+│   └── design/                # 디자인 기준 (design_spec, type_naming, tokens.json, 시안, SVG 에셋)
 └── .claude/
     └── agents/
         └── mbti-psychologist.md  # 콘텐츠 생성 전용 심리학자 에이전트(Dr. 김서연)
@@ -150,7 +161,7 @@ const starters = await listStarterQuestions("career");
 
 | 단계 | 내용 |
 |------|------|
-| **1단계 · 검사 플로우** | Next.js 스캐폴딩(TypeScript/Tailwind), 60문항 검사 UI(한 페이지 6문항) → `lib/assessment`로 채점·동점 질문·유형 판별 |
+| **1단계 · 검사 플로우** | Next.js 스캐폴딩(TypeScript/Tailwind) + 디자인 토큰·글꼴·공통 부품, 랜딩, 60문항 검사 UI(한 페이지 6문항) → `lib/assessment`로 채점·동점 질문·유형 판별 |
 | **2단계 · 결과 페이지** | `profiles.json`·`compatibility.json`·`famous-people.json` 렌더링, 결과 공유 기능 |
 | **3단계 · AI 챗봇** | Route Handler에서 `getAdvice()` 배선, 채팅 UI, API 키 환경변수 설정, (선택) 스트리밍 응답 |
 | **4단계 · 운영** | 배포, 분석, 접근성/SEO, 성능 최적화 |
