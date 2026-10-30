@@ -112,9 +112,11 @@ export async function getAdvice(input: GetAdviceInput): Promise<ChatResult> {
     crisisDetected: crisis,
   });
 
+  const promptVersion = typeof prompts._meta.version === "string" ? prompts._meta.version : undefined;
+
   try {
     const result = await chatWithFailover(messages, providers);
-    return { ...result, safety };
+    return { ...result, safety, promptVersion };
   } catch (e) {
     // 위기 상황에서는 오류로 끝내지 않고 고정 안내 문구와 상담 자원을 반드시 돌려준다.
     if (crisis && protocol) {
@@ -124,6 +126,7 @@ export async function getAdvice(input: GetAdviceInput): Promise<ChatResult> {
         model: "none",
         attempts: [],
         safety,
+        promptVersion,
       };
     }
     throw e;

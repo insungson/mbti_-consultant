@@ -23,7 +23,7 @@ const CRISIS_NOTICE =
 
 /** 이전 대화가 있을 때 system 프롬프트 끝(위기 알림 앞)에 붙이는 지시 (recency 보강) */
 const FOLLOW_UP_NOTICE =
-  "[이어지는 대화]\n앞에서 들은 사실을 이어 받는다. 인사와 유형 설명을 되풀이하지 않고, 질문은 하나까지만 한다.";
+  "[이어지는 대화]\n앞에서 들은 사실을 이어 받는다. 인사와 유형 설명을 되풀이하지 않고, 질문은 하나만 하되 한 가지만 묻는다.";
 
 /** 한 섹션 값을 프롬프트에 넣기 좋은 텍스트로 직렬화 */
 function serializeSection(value: unknown): string {

@@ -40,12 +40,15 @@
 | 파일 | 내용 |
 |------|------|
 | `docs/plan/chatbot_spec.md` | 챗봇 설계서 — 응답 구조·캐릭터 시트·금지선·위기 대응·평가 시나리오 |
+| `docs/plan/chatbot_eval_plan.md` | 상담 품질 평가·개선 계획 — 평가 단계(L0~L4), 버전 올리는 기준(안전 관문), 아키텍처 결정 뒤 정할 것 |
+| `evals/chatbot/` | 상담 평가 세트 원본 — 시나리오 29개(`scenarios.json`), 채점표(`rubric.json`), 돌리는 법·결과 형식(`README.md`) |
+| `scripts/check_chat_replies.py` | 상담 답변 자동 점검 — 예시 대화 점검(`--examples`), 평가 결과 채점·통과율·기준선 비교 |
 | `docs/plan/report_spec.md` | 결과 리포트 사양 — 섹션 구성·데이터 스키마·CTA·변경 기록 |
 | `docs/plan/copy_tone_guide.md` | "거울" 카피 톤 가이드 — 리포트·공유 카드·CTA 공통 문체 규칙 |
 | `docs/plan/user_flow_spec.md` | 유저 플로우 설계 — 검사 → 리포트 → 상담 화면 흐름, 채점 규칙(동점·경계), 위기 카드·면책 위치, 저장·개인정보, 분석 이벤트 |
 | `lib/assessment/*.ts` | 검사 순수 모듈(브라우저·서버 공용) — 문항 페이지 나누기, 축 합계·동점 확인·유형 판정, 스펙트럼 표시 비율 |
 | `scripts/check_report_copy.py` | 리포트 카피 검사(톤 금지 패턴·스키마·길이·유형 간 반복). 카피를 고친 뒤 `python3 scripts/check_report_copy.py data/profiles.json` |
-| `data/chatbot-prompts.json` | **v2.3** — 페르소나 3종(지온/하랑/다온) + 인정→탐색→격려→안전 응답 구조 + 대화 이어 가기 규칙 + 캐릭터별 듣는 방식·말투·금지선·예시 대화(두 번 주고받기) + 공통 가드레일 + 위기 대응 프로토콜(상담 자원 전화·문자 연결 정보 포함) + 추천 질문 + 대화 첫 인사말 |
+| `data/chatbot-prompts.json` | **v2.4** — 페르소나 3종(지온/하랑/다온) + 인정→탐색→격려→안전 응답 구조 + 대화 이어 가기 규칙(사용자가 요청한 대화 방식 우선) + 캐릭터별 듣는 방식·말투·금지선·예시 대화(세 번 주고받기, 거절·정정·의심 장면 포함) + 공통 가드레일 + 위기 대응 프로토콜(상담 자원 전화·문자 연결 정보 포함) + 추천 질문 + 대화 첫 인사말 |
 | `data/ai-providers.json` | 무료 AI 모델 폴백 체인 설정 (토큰 소진 시 자동 전환) |
 | `lib/chatbot/*.ts` | 프레임워크 무관 순수 TS 모듈 (프롬프트 조립 + 폴백 호출 + 위기 감지 안전망) |
 
@@ -97,9 +100,12 @@ mbti_nextjs/
 │       ├── providerChain.ts   # 무료 모델 폴백 호출 클라이언트
 │       └── index.ts           # getAdvice() 진입점 + 데이터 로딩
 ├── scripts/
-│   └── check_report_copy.py   # 리포트 카피 검사 (python3, 의존성 없음)
+│   ├── check_report_copy.py   # 리포트 카피 검사 (python3, 의존성 없음)
+│   └── check_chat_replies.py  # 상담 답변 자동 점검·평가 결과 채점 (python3, 의존성 없음)
+├── evals/
+│   └── chatbot/               # 상담 평가 세트 (scenarios.json, rubric.json, results/)
 ├── docs/
-│   ├── plan/                  # 기획 문서 (overview, chatbot_spec, report_spec, copy_tone_guide, user_flow_spec)
+│   ├── plan/                  # 기획 문서 (overview, chatbot_spec, chatbot_eval_plan, report_spec, copy_tone_guide, user_flow_spec)
 │   └── design/                # 디자인 기준 (design_spec, type_naming, tokens.json, 시안, SVG 에셋)
 └── .claude/
     └── agents/

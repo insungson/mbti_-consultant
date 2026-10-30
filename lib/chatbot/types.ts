@@ -148,6 +148,8 @@ export interface ChatResult {
   model: string;
   /** 시도했지만 실패/건너뛴 제공자 기록 (디버깅용) */
   attempts: { providerId: string; skipped?: boolean; error?: string }[];
+  /** 답변을 만든 프롬프트 버전 (chatbot-prompts.json _meta.version). 평가 결과·운영 신호를 버전별로 묶는 데 쓴다 */
+  promptVersion?: string;
   /** 코드 레벨 위기 감지 결과. UI는 crisis=true면 모델 응답과 별개로 고정 위기 안내를 띄운다 */
   safety?: {
     crisis: boolean;
