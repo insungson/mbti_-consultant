@@ -21,6 +21,10 @@ const FIELD_LABELS: Record<string, string> = {
 const CRISIS_NOTICE =
   "[이번 메시지 주의]\n위기 신호가 감지되었다. 다른 모든 규칙보다 위기 대응 규칙을 먼저 적용하라.";
 
+/** 이전 대화가 있을 때 system 프롬프트 끝(위기 알림 앞)에 붙이는 지시 (recency 보강) */
+const FOLLOW_UP_NOTICE =
+  "[이어지는 대화]\n앞에서 들은 사실을 이어 받는다. 인사와 유형 설명을 되풀이하지 않고, 질문은 하나까지만 한다.";
+
 /** 한 섹션 값을 프롬프트에 넣기 좋은 텍스트로 직렬화 */
 function serializeSection(value: unknown): string {
   if (value == null) return "(정보 없음)";
@@ -53,12 +57,19 @@ function fillTemplate(template: string, vars: Record<string, string>): string {
   );
 }
 
-/** [응답 구조] 인정 → 격려 → 안전 + 하지 말 것 */
+/** [응답 구조] 인정 → 탐색 → 격려 → 안전 + 하지 말 것 */
 function buildResponseStructure(shared: ChatbotPrompts["shared"]): string | null {
   const structure = shared.responseStructure;
   if (!structure) return null;
+  const flow = structure.steps.map((s) => s.label).join(" → ");
   const steps = structure.steps.map((s, i) => `${i + 1}. ${s.label}: ${s.rule}`).join("\n");
-  return `[응답 구조 — 인정 → 격려 → 안전]\n${steps}\n하지 말 것:\n${bullets(structure.antiPatterns)}`;
+  return `[응답 구조 — ${flow}]\n${steps}\n하지 말 것:\n${bullets(structure.antiPatterns)}`;
+}
+
+/** [대화 이어 가기] 두 번째 답변부터의 규칙 */
+function buildConversationFlow(shared: ChatbotPrompts["shared"]): string | null {
+  if (!shared.conversationFlow?.length) return null;
+  return `[대화 이어 가기]\n${bullets(shared.conversationFlow)}`;
 }
 
 /** [말투] 공통 높임·호칭 + 캐릭터 말투 */
@@ -70,6 +81,7 @@ function buildSpeech(shared: ChatbotPrompts["shared"], persona: Persona): string
     const phrases = style.signaturePhrases.map((p) => `'${p}'`).join(", ");
     lines.push(`자주 쓰는 표현(매번 쓸 필요는 없음): ${phrases}`);
     lines.push(`이모지: ${style.emoji}`);
+    if (style.length) lines.push(`길이: ${style.length}`);
   }
   return `[말투]\n${bullets(lines)}`;
 }
@@ -112,7 +124,11 @@ function buildExamples(persona: Persona): string | null {
   const examples = persona.exampleDialogue;
   if (!examples?.length) return null;
   const body = examples
-    .map((e) => `(예시 유형: ${e.exampleType})\n사용자: ${e.user}\n${persona.personaName}: ${e.assistant}`)
+    .map((e) => {
+      const turns = [{ user: e.user, assistant: e.assistant }, ...(e.followUp ?? [])];
+      const lines = turns.map((t) => `사용자: ${t.user}\n${persona.personaName}: ${t.assistant}`);
+      return `(예시 유형: ${e.exampleType})\n${lines.join("\n")}`;
+    })
     .join("\n\n");
   return (
     "[응답 예시 — 말투·구조 참고용]\n" +
@@ -138,6 +154,7 @@ export interface BuildMessagesInput {
  * 챗봇 요청용 OpenAI 호환 메시지 배열을 만든다.
  * 구조: [system(페르소나+규칙+유형컨텍스트+예시), ...history, user]
  * 안전 관련 지시는 앞(금지선·위기 대응)과 맨 끝(위기 감지 시 주의)에 함께 둔다.
+ * 이전 대화가 있으면 위기 알림 바로 앞에 [이어지는 대화] 알림을 붙인다.
  */
 export function buildMessages(input: BuildMessagesInput): ChatMessage[] {
   const { prompts, personaId, profile, history = [], userMessage, extraContext, crisisDetected } = input;
@@ -167,6 +184,7 @@ export function buildMessages(input: BuildMessagesInput): ChatMessage[] {
     persona.systemPrompt,
     shared.rulePriority ? `[규칙 우선순위]\n${shared.rulePriority}` : null,
     buildResponseStructure(shared),
+    buildConversationFlow(shared),
     buildSpeech(shared, persona),
     buildForbidden(shared, persona),
     buildCrisisSection(shared.crisisProtocol),
@@ -176,6 +194,7 @@ export function buildMessages(input: BuildMessagesInput): ChatMessage[] {
     extraContext ? `[추가 참고 정보]\n${extraContext}` : null,
     buildExamples(persona),
     `[면책 — 화면에 고정 표시되므로 답변마다 반복하지 않는다]\n${shared.disclaimer}`,
+    history.length > 0 ? FOLLOW_UP_NOTICE : null,
     crisisDetected ? CRISIS_NOTICE : null,
   ]
     .filter(Boolean)

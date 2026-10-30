@@ -61,6 +61,7 @@
 | `docs/plan/copy_tone_guide.md` §4 | 유형 표기 규칙: "중재자(INFP)" → "제비꽃(INFP)" |
 | `docs/plan/report_spec.md` | 별칭이 들어간 예시 문구 |
 | `data/flow-copy.json` | `share.shareTitle` 의 `{nickname}` 은 그대로 두면 꽃 이름으로 바뀜. 결과 확인 |
-| `data/chatbot-prompts.json` | 인사말·프롬프트의 `{nickname}` 치환 결과 확인("제비꽃 유형의 강점과 연결해서") |
+| `data/chatbot-prompts.json` | 인사말·프롬프트의 `{nickname}` 치환 결과 확인("제비꽃 유형의 강점과 연결해서"). 직접 쓴 별칭도 치환: `exampleDialogue`·`followUp` 속 "수호자·중재자·활동가 유형", `speechBase.addressing`의 예시 "중재자 유형은~" |
+| `docs/plan/chatbot_spec.md` §3·§5 | 예시 대화 속 별칭(위와 같은 문장) |
 | `data/compatibility.json`, `famous-people.json` | 별칭 문자열 포함 여부 확인 |
 | `scripts/check_report_copy.py` | 기존 별칭이 남아 있으면 경고하는 점검 추가 |

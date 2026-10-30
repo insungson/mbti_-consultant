@@ -7,7 +7,7 @@ export interface ChatMessage {
   content: string;
 }
 
-/** 응답 구조(인정 → 격려 → 안전)의 한 단계 */
+/** 응답 구조(인정 → 탐색 → 격려 → 안전)의 한 단계 */
 export interface ResponseStep {
   id: string;
   label: string;
@@ -41,6 +41,8 @@ export interface SpeechStyle {
   traits: string[];
   signaturePhrases: string[];
   emoji: string;
+  /** 캐릭터별 답변 길이 (outputStyle.length 보다 우선) */
+  length?: string;
 }
 
 /** 말투·구조 참고용 예시 대화 */
@@ -49,6 +51,8 @@ export interface ExampleDialogue {
   exampleType: string;
   user: string;
   assistant: string;
+  /** 이어지는 대화 예시 (두 번째 답변부터의 반응을 보여 준다) */
+  followUp?: { user: string; assistant: string }[];
 }
 
 /** data/chatbot-prompts.json 의 personas[*] 한 개 */
@@ -85,6 +89,8 @@ export interface ChatbotPrompts {
     /** 규칙 충돌 시 우선순위 */
     rulePriority?: string;
     responseStructure?: { steps: ResponseStep[]; antiPatterns: string[] };
+    /** 두 번째 답변부터의 대화 규칙 (거절·반박·반복 대응) */
+    conversationFlow?: string[];
     /** 공통 높임·호칭 규칙 */
     speechBase?: Record<string, string>;
     crisisProtocol?: CrisisProtocol;
