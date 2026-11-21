@@ -30,3 +30,9 @@
 - 세계관: 마음 정원 (가칭 서비스명 '피어나'), 글꼴 고운바탕(제목)·고운돋움(본문)
 - 토큰: `docs/design/tokens.json` / 시안 이미지: `docs/design/mockups/round2/*.png`
 - 16유형 꽃 이름(`docs/design/type_naming.md`)은 초안 — 확정 전에는 데이터의 별칭을 바꾸지 않는다
+
+## 상담 평가 (어느 AI 도구에서든 같은 기준)
+- 절차·기준 원본: `evals/chatbot/README.md`, 채점표와 세부 기준: `evals/chatbot/rubric.json`
+- 실행: `bun scripts/run_chat_eval.ts` (Claude·Codex·연결 명령) / 자동 점검: `python3 scripts/check_chat_replies.py`
+- 스킬: `.agents/skills/chat-eval/` (Claude Code는 `.claude/skills/chat-eval` 링크로 같은 파일을 읽는다)
+- 평가 세트·채점표·점검 스크립트·모델 답변을 결과에 맞춰 고치지 않는다. 전체 실행은 사용자가 요청하고 모델을 정했을 때만 한다

@@ -91,6 +91,8 @@ export interface ChatbotPrompts {
     responseStructure?: { steps: ResponseStep[]; antiPatterns: string[] };
     /** 두 번째 답변부터의 대화 규칙 (거절·반박·반복 대응) */
     conversationFlow?: string[];
+    /** system 프롬프트 끝에 다시 적는 짧은 확인 목록 (작은 모델이 앞부분 규칙을 놓치는 것을 보완) */
+    finalChecklist?: string[];
     /** 공통 높임·호칭 규칙 */
     speechBase?: Record<string, string>;
     crisisProtocol?: CrisisProtocol;

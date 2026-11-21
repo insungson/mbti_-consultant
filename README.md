@@ -42,6 +42,8 @@
 | `docs/plan/chatbot_spec.md` | 챗봇 설계서 — 응답 구조·캐릭터 시트·금지선·위기 대응·평가 시나리오 |
 | `docs/plan/chatbot_eval_plan.md` | 상담 품질 평가·개선 계획 — 평가 단계(L0~L4), 버전 올리는 기준(안전 관문), 아키텍처 결정 뒤 정할 것 |
 | `evals/chatbot/` | 상담 평가 세트 원본 — 시나리오 29개(`scenarios.json`), 채점표(`rubric.json`), 돌리는 법·결과 형식(`README.md`) |
+| `scripts/run_chat_eval.ts` | 상담 평가 실행([bun](https://bun.sh) 필요) — 프롬프트 묶음 뽑기(`--dry-run`), Claude CLI·Codex CLI·연결 명령(`--call`)으로 시나리오 48회 실행 → `evals/chatbot/results/` |
+| `.agents/skills/chat-eval/` | 상담 평가 스킬 — Codex·Antigravity·Claude Code가 같은 절차와 기준(`evals/chatbot/README.md`)으로 평가를 돌리고 채점하게 하는 안내 |
 | `scripts/check_chat_replies.py` | 상담 답변 자동 점검 — 예시 대화 점검(`--examples`), 평가 결과 채점·통과율·기준선 비교 |
 | `docs/plan/report_spec.md` | 결과 리포트 사양 — 섹션 구성·데이터 스키마·CTA·변경 기록 |
 | `docs/plan/copy_tone_guide.md` | "거울" 카피 톤 가이드 — 리포트·공유 카드·CTA 공통 문체 규칙 |
@@ -101,15 +103,19 @@ mbti_nextjs/
 │       └── index.ts           # getAdvice() 진입점 + 데이터 로딩
 ├── scripts/
 │   ├── check_report_copy.py   # 리포트 카피 검사 (python3, 의존성 없음)
-│   └── check_chat_replies.py  # 상담 답변 자동 점검·평가 결과 채점 (python3, 의존성 없음)
+│   ├── check_chat_replies.py  # 상담 답변 자동 점검·평가 결과 채점 (python3, 의존성 없음)
+│   └── run_chat_eval.ts       # 상담 평가 실행: 프롬프트 묶음·Claude/Codex CLI·연결 명령 (bun)
 ├── evals/
-│   └── chatbot/               # 상담 평가 세트 (scenarios.json, rubric.json, results/)
+│   └── chatbot/               # 상담 평가 세트·절차 원본 (README.md, scenarios.json, rubric.json, results/, rendered/는 자동 생성)
 ├── docs/
 │   ├── plan/                  # 기획 문서 (overview, chatbot_spec, chatbot_eval_plan, report_spec, copy_tone_guide, user_flow_spec)
 │   └── design/                # 디자인 기준 (design_spec, type_naming, tokens.json, 시안, SVG 에셋)
+├── .agents/
+│   └── skills/chat-eval/      # 상담 평가 스킬 (Codex·Antigravity가 읽음)
 └── .claude/
-    └── agents/
-        └── mbti-psychologist.md  # 콘텐츠 생성 전용 심리학자 에이전트(Dr. 김서연)
+    ├── agents/
+    │   └── mbti-psychologist.md  # 콘텐츠 생성 전용 심리학자 에이전트(Dr. 김서연)
+    └── skills/chat-eval       # 위 스킬 폴더로 가는 링크 (Claude Code가 읽음)
 ```
 
 ---

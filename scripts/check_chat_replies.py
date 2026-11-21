@@ -62,7 +62,8 @@ def analyze(text: str) -> dict:
     prose = " ".join(line for line in lines if not LIST_ITEM.match(line)).strip()
     return {
         "unquoted": unquoted,
-        "sentences": len([s for s in SENTENCE_END.split(prose) if s.strip()]),
+        # 이모지만 남은 조각(물음표 뒤에 따로 붙은 🌱 등)은 문장으로 세지 않는다
+        "sentences": len([s for s in SENTENCE_END.split(prose) if EMOJI.sub("", s).strip()]),
         "list_items": sum(1 for line in lines if LIST_ITEM.match(line)),
         "questions": unquoted.count("?") + unquoted.count("？"),
         "emoji": len(EMOJI.findall(text)),

@@ -19,11 +19,13 @@ const FIELD_LABELS: Record<string, string> = {
 
 /** 코드 안전망이 위기를 감지했을 때 system 프롬프트 맨 끝에 붙이는 지시 (recency 보강) */
 const CRISIS_NOTICE =
-  "[이번 메시지 주의]\n위기 신호가 감지되었다. 다른 모든 규칙보다 위기 대응 규칙을 먼저 적용하라.";
+  "[이번 메시지 주의]\n위기 신호가 감지되었다. 다른 모든 규칙보다 위기 대응 규칙을 먼저 적용하라.\n" +
+  "자해·자살의 계획이나 수단을 말했으면 109·1577-0199와 112·119를 안내하고, 상담 자원은 이 넷을 넘기지 않는다(폭력·학대 피해는 1366, 청소년이면 1388로 바꾼다).";
 
 /** 이전 대화가 있을 때 system 프롬프트 끝(위기 알림 앞)에 붙이는 지시 (recency 보강) */
 const FOLLOW_UP_NOTICE =
-  "[이어지는 대화]\n앞에서 들은 사실을 이어 받는다. 인사와 유형 설명을 되풀이하지 않고, 질문은 하나만 하되 한 가지만 묻는다.";
+  "[이어지는 대화]\n앞에서 들은 사실을 이어 받는다. 인사와 유형 설명·유형 별명을 되풀이하지 않고, 질문은 하나만 하되 한 가지만 묻는다.\n" +
+  "사용자가 이미 해 봤다거나 소용없었다고 한 방법은 이름만 바꾼 비슷한 방법으로도 다시 내지 않는다.";
 
 /** 한 섹션 값을 프롬프트에 넣기 좋은 텍스트로 직렬화 */
 function serializeSection(value: unknown): string {
@@ -154,6 +156,7 @@ export interface BuildMessagesInput {
  * 챗봇 요청용 OpenAI 호환 메시지 배열을 만든다.
  * 구조: [system(페르소나+규칙+유형컨텍스트+예시), ...history, user]
  * 안전 관련 지시는 앞(금지선·위기 대응)과 맨 끝(위기 감지 시 주의)에 함께 둔다.
+ * 면책 뒤에 [답하기 전 마지막 확인](shared.finalChecklist)을 둔다(작은 모델의 말투 규칙 보강, v2.5).
  * 이전 대화가 있으면 위기 알림 바로 앞에 [이어지는 대화] 알림을 붙인다.
  */
 export function buildMessages(input: BuildMessagesInput): ChatMessage[] {
@@ -194,6 +197,9 @@ export function buildMessages(input: BuildMessagesInput): ChatMessage[] {
     extraContext ? `[추가 참고 정보]\n${extraContext}` : null,
     buildExamples(persona),
     `[면책 — 화면에 고정 표시되므로 답변마다 반복하지 않는다]\n${shared.disclaimer}`,
+    shared.finalChecklist?.length
+      ? `[답하기 전 마지막 확인]\n${bullets(shared.finalChecklist)}`
+      : null,
     history.length > 0 ? FOLLOW_UP_NOTICE : null,
     crisisDetected ? CRISIS_NOTICE : null,
   ]
