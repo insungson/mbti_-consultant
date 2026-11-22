@@ -95,6 +95,10 @@ def main() -> None:
             print(f"  출력 토큰  중앙값 {statistics.median(outs):,.0f} · 평균 {statistics.mean(outs):,.0f} · 최대 {max(outs):,}")
         if reas:
             print(f"  (그중 생각 토큰  평균 {statistics.mean(reas):,.0f})")
+        hidden = [r["totalTokens"] - r["inputTokens"] - r["outputTokens"] for r in ok
+                  if all(isinstance(r.get(k), int) for k in ("totalTokens", "inputTokens", "outputTokens"))]
+        if hidden:
+            print(f"  보이지 않는 토큰(합계 - 입력 - 출력)  평균 {statistics.mean(hidden):,.0f} · 최대 {max(hidden):,}  (0이 아니면 생각 모드가 켜져 있을 수 있음)")
         if secs:
             print(
                 f"  답변 시간  중앙값 {statistics.median(secs):.1f}초 · 90% {pct(secs, 0.9):.1f}초 · 최대 {max(secs):.1f}초"
@@ -103,6 +107,9 @@ def main() -> None:
         print(f"  길이 한도에서 잘림 {truncated}회 · 생각 내용이 보인 답변 {think}회")
 
         rate = rates_for(model, args.neurons_in, args.neurons_out)
+        if rate is not None and not model.startswith("@cf/") and args.neurons_in is None:
+            print("  비용 환산  Cloudflare 모델이 아니라 건너뜀 (Google AI Studio의 Gemma 4는 무료)")
+            continue
         if not (ins and outs):
             print("  비용 환산  토큰 수가 없어 계산하지 못함")
             continue

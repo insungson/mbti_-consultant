@@ -36,7 +36,7 @@
 | Claude | `bun scripts/run_chat_eval.ts --model opus` | 빈 임시 폴더에서 `claude -p`를 시스템 프롬프트 교체, 도구 없음, `--safe-mode`로 부른다. CLI가 에이전트 소개 한 문장과 작업 환경 정보(약 600토큰)를 덧붙인다 |
 | GPT (Codex) | `bun scripts/run_chat_eval.ts --cli codex --model gpt-6.1-sol` | 빈 임시 폴더에서 `codex exec`의 기본 지침을 상담 프롬프트로 바꿔 부른다. 사용자 설정과 `AGENTS.md`는 읽지 않는다. Codex가 스킬 목록·에이전트 안내·도구 설명(약 1만 토큰)을 덧붙인다 |
 | 그 밖 (Gemini 등) | `bun scripts/run_chat_eval.ts --call "<연결 명령>" --label <제공자 이름>` | 연결 명령이 정한다(아래) |
-| OpenAI 호환 서버 (Cloudflare Workers AI · Ollama 등) | `bun scripts/run_chat_eval.ts --call "python3 scripts/eval_bridge_openai.py --base-url <주소> [--api-key-env <키 변수>] --log <기록.jsonl>" --model <모델> --label <이름>` | 덧붙는 내용 없음, temperature 0.7 · 최대 1,024토큰(서비스 설정). 기록은 `scripts/summarize_eval_calls.py`로 토큰 · 시간 · Cloudflare 비용 요약. 예시는 `docs/plan/cloudflare_eval_plan.md` |
+| OpenAI 호환 서버 (Cloudflare Workers AI · Ollama 등) | `bun scripts/run_chat_eval.ts --call "python3 scripts/eval_bridge_openai.py --base-url <주소> [--api-key-env <키 변수>] --log <기록.jsonl>" --model <모델> --label <이름>` | 덧붙는 내용 없음, temperature 0.7 · 최대 1,024토큰(서비스 설정). 기록은 `scripts/summarize_eval_calls.py`로 토큰 · 시간 · Cloudflare 비용 요약. 예시는 `docs/plan/cloudflare_eval_plan.md`(Cloudflare) · `docs/plan/prompt_tuning_workflow.md`(Google AI Studio) |
 
 - 모델 이름은 각 CLI의 것을 쓴다(`codex debug models`, `agy models` 등으로 확인).
 - 어느 CLI든 temperature는 정할 수 없다(서비스 설정은 0.7). 실제 서비스 조건은 평가 계획의 L2에서 본다.
