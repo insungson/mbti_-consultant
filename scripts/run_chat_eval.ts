@@ -39,6 +39,10 @@ interface Scenario {
   personas: string[];
   type?: string;
   crisis?: boolean;
+  /** 하랑 시나리오의 상대 유형 → getAdvice()처럼 궁합 데이터를 붙인다 */
+  partnerType?: string;
+  /** 모델에 보내는 이전 대화를 최근 N개 메시지로 자른다 (서비스의 '최근 12개') */
+  historyLimit?: number;
   turns: string[];
   expect?: string;
   focus?: string[];
@@ -168,7 +172,8 @@ function renderTurn(
   profile: TypeProfile,
   persona: string,
   history: ChatMessage[],
-  userMessage: string
+  userMessage: string,
+  extraContext?: string
 ): { system: string; crisis: boolean } {
   const keywords = prompts.shared.crisisProtocol?.keywords ?? [];
   const crisis = detectCrisis(userMessage, keywords).length > 0;
@@ -178,10 +183,30 @@ function renderTurn(
     profile,
     history,
     userMessage,
+    extraContext,
     crisisDetected: crisis,
   });
   return { system: messages[0].content, crisis };
 }
+
+type CompatMatrix = { matrix: Record<string, Record<string, unknown>> };
+
+/** getAdvice()(lib/chatbot/index.ts)와 같은 궁합 컨텍스트. 관계 캐릭터 + partnerType 일 때만 */
+function compatContext(
+  prompts: ChatbotPrompts,
+  compat: CompatMatrix,
+  persona: string,
+  type: string,
+  partner?: string
+): string | undefined {
+  if (!partner || !prompts.personas[persona]?.needsCompatibility) return undefined;
+  const cell = compat.matrix?.[type]?.[partner];
+  return cell ? `사용자(${type})와 상대(${partner})의 궁합 데이터:\n${JSON.stringify(cell, null, 2)}` : undefined;
+}
+
+/** 서비스처럼 최근 N개 메시지만 보낸다 */
+const limitHistory = (history: ChatMessage[], limit?: number) =>
+  limit && limit > 0 ? history.slice(-limit) : history;
 
 // ── 프롬프트 묶음 (--dry-run) ─────────────────────────────────────────────
 
@@ -189,6 +214,7 @@ function writeRendered(
   runs: EvalRun[],
   prompts: ChatbotPrompts,
   profiles: Record<string, TypeProfile>,
+  compat: CompatMatrix,
   version: string
 ): void {
   const outDir = join(RENDERED_DIR, `v${version}`);
@@ -208,13 +234,17 @@ function writeRendered(
     const history: ChatMessage[] = [];
     const flags: string[] = [];
     let crisisSeen = false;
+    const extra = compatContext(prompts, compat, persona, type, scenario.partnerType);
     scenario.turns.forEach((userMessage, i) => {
-      const { system, crisis } = renderTurn(prompts, profiles[type], persona, history, userMessage);
+      const sent = limitHistory(history, scenario.historyLimit);
+      const { system, crisis } = renderTurn(prompts, profiles[type], persona, sent, userMessage, extra);
       writeFileSync(join(runDir, `turn${i + 1}.system.txt`), `${system}\n`);
       writeFileSync(join(runDir, `turn${i + 1}.user.txt`), `${userMessage}\n`);
       flags.push(
         `${i + 1}: ${system.length.toLocaleString()}자` +
-          (history.length > 0 ? " · 이어지는 대화" : "") +
+          (sent.length > 0 ? " · 이어지는 대화" : "") +
+          (sent.length < history.length ? ` · 이력 ${sent.length}/${history.length}개만` : "") +
+          (extra ? " · 궁합 데이터" : "") +
           (crisis ? " · 위기 알림" : "")
       );
       crisisSeen ||= crisis;
@@ -494,17 +524,20 @@ function runOnce(
   evalRun: EvalRun,
   prompts: ChatbotPrompts,
   profile: TypeProfile,
+  compat: CompatMatrix,
   adapter: Adapter,
   model: string | undefined,
   workDir: string
 ): string[] {
   const { scenario, persona } = evalRun;
+  const extra = compatContext(prompts, compat, persona, evalRun.type, scenario.partnerType);
   const session = scenario.turns.length > 1 ? {} : undefined;
   const history: ChatMessage[] = [];
   const replies: string[] = [];
   for (const userMessage of scenario.turns) {
-    const { system } = renderTurn(prompts, profile, persona, history, userMessage);
-    const { text } = adapter.call({ system, user: userMessage, history: [...history], model, workDir, session });
+    const sent = limitHistory(history, scenario.historyLimit);
+    const { system } = renderTurn(prompts, profile, persona, sent, userMessage, extra);
+    const { text } = adapter.call({ system, user: userMessage, history: [...sent], model, workDir, session });
     replies.push(text);
     history.push({ role: "user", content: userMessage }, { role: "assistant", content: text });
   }
@@ -531,17 +564,19 @@ function main(): void {
   const prompts = loadJson<ChatbotPrompts>(join(ROOT, "data", "chatbot-prompts.json"));
   const profiles = loadJson<{ profiles: Record<string, TypeProfile> }>(join(ROOT, "data", "profiles.json")).profiles;
   const scenarios = loadJson<ScenariosFile>(join(EVAL_DIR, "scenarios.json"));
+  const compat = loadJson<CompatMatrix>(join(ROOT, "data", "compatibility.json"));
   const version = String(prompts._meta.version ?? "unknown");
 
   const allRuns = expandRuns(scenarios);
   for (const r of allRuns) {
     if (!prompts.personas[r.persona]) fail(`${r.scenario.id}: 알 수 없는 캐릭터 ${r.persona}`);
     if (!profiles[r.type]) fail(`${r.scenario.id}: 알 수 없는 유형 ${r.type}`);
+    if (r.scenario.partnerType && !profiles[r.scenario.partnerType]) fail(`${r.scenario.id}: 알 수 없는 상대 유형 ${r.scenario.partnerType}`);
   }
   const runs = filterRuns(allRuns, opts.only);
 
   if (opts.dryRun) {
-    writeRendered(runs, prompts, profiles, version);
+    writeRendered(runs, prompts, profiles, compat, version);
     return;
   }
 
@@ -569,6 +604,9 @@ function main(): void {
     writeFileSync(outPath, `${JSON.stringify(results, null, 2)}\n`);
   };
 
+  if (!opts.call && runs.some((r) => r.scenario.historyLimit)) {
+    console.log("⚠️ historyLimit 시나리오가 있어요. claude·codex CLI는 세션이 전체 대화를 기억해서 이력 자르기가 정확하지 않아요(--call 에서만 정확).");
+  }
   const todo = runs.filter((r) => opts.force || !isComplete(records.get(runKey(r.scenario.id, r.persona)), r));
   const calls = todo.reduce((n, r) => n + r.scenario.turns.length, 0);
   console.log(
@@ -600,7 +638,7 @@ function main(): void {
       // 실패하면 그 실행을 처음부터 한 번 더 (멀티턴은 새 세션으로)
       for (let attempt = 0; attempt < 2 && !replies; attempt++) {
         try {
-          replies = runOnce(evalRun, prompts, profiles[evalRun.type], adapter, opts.model, workDir);
+          replies = runOnce(evalRun, prompts, profiles[evalRun.type], compat, adapter, opts.model, workDir);
         } catch (e) {
           lastError = e instanceof Error ? e.message : String(e);
         }

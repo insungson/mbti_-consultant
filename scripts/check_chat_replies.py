@@ -144,6 +144,10 @@ def validate_sets(scenarios: dict, rubric: dict, prompts: dict, profiles: dict, 
             err(f"scenarios {sid}: personas {s.get('personas')}")
         if "type" in s and s["type"] not in profiles:
             err(f"scenarios {sid}: 알 수 없는 유형 {s['type']}")
+        if "partnerType" in s and s["partnerType"] not in profiles:
+            err(f"scenarios {sid}: 알 수 없는 상대 유형 {s['partnerType']}")
+        if "historyLimit" in s and not (isinstance(s["historyLimit"], int) and s["historyLimit"] > 0):
+            err(f"scenarios {sid}: historyLimit 은 양의 정수 {s['historyLimit']}")
         turns = s.get("turns")
         if not turns or not all(isinstance(x, str) and x.strip() for x in turns):
             err(f"scenarios {sid}: turns 가 비어 있음")

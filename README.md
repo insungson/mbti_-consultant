@@ -39,9 +39,10 @@
 ### ✅ 완료 — 기획 문서 · 리포트 · AI 챗봇 사전 준비
 | 파일 | 내용 |
 |------|------|
+| `docs/plan/architecture.md` | 시스템 아키텍처 — 웹(Next.js)·API 서버(Hono)를 맥미니 홈서버 + Cloudflare Tunnel로 운영, 원칙·저장소 구조·단계별 완료 기준·앱 대비 규칙 (1~3단계 확정) |
 | `docs/plan/chatbot_spec.md` | 챗봇 설계서 — 응답 구조·캐릭터 시트·금지선·위기 대응·평가 시나리오 |
 | `docs/plan/chatbot_eval_plan.md` | 상담 품질 평가·개선 계획 — 평가 단계(L0~L4), 버전 올리는 기준(안전 관문), 아키텍처 결정 뒤 정할 것 |
-| `evals/chatbot/` | 상담 평가 세트 원본 — 시나리오 29개(`scenarios.json`), 채점표(`rubric.json`), 돌리는 법·결과 형식(`README.md`) |
+| `evals/chatbot/` | 상담 평가 세트 원본 — 시나리오 44개(`scenarios.json`), 채점표(`rubric.json`), 돌리는 법·결과 형식(`README.md`) |
 | `scripts/run_chat_eval.ts` | 상담 평가 실행([bun](https://bun.sh) 필요) — 프롬프트 묶음 뽑기(`--dry-run`), Claude CLI·Codex CLI·연결 명령(`--call`)으로 시나리오 48회 실행 → `evals/chatbot/results/` |
 | `.agents/skills/chat-eval/` | 상담 평가 스킬 — Codex·Antigravity·Claude Code가 같은 절차와 기준(`evals/chatbot/README.md`)으로 평가를 돌리고 채점하게 하는 안내 |
 | `scripts/check_chat_replies.py` | 상담 답변 자동 점검 — 예시 대화 점검(`--examples`), 평가 결과 채점·통과율·기준선 비교 |
@@ -67,7 +68,7 @@
 ### ⬜ 미착수 — 애플리케이션 레이어
 - Next.js 앱 스캐폴딩 (`package.json`, `app/`, `next.config.*` 없음)
 - 검사 플로우 UI(문항 → 점수 계산 → 결과), 결과/프로필/궁합 페이지
-- 챗봇 API 라우트 배선 및 채팅 UI
+- API 서버(Hono) 상담 연결 및 채팅 UI (`docs/plan/architecture.md` 2단계)
 - 화면은 `docs/design/` 시안을 기준으로 만들고, 실제 화면을 Claude 데스크탑에서 함께 보며 조정한다 (`docs/plan/user_flow_spec.md` §14)
 
 ---
@@ -89,6 +90,9 @@ mbti_nextjs/
 │   ├── chatbot-prompts.json   # 챗봇 페르소나·프롬프트
 │   ├── ai-providers.json      # 무료 AI 모델 폴백 체인 설정
 │   └── *-cultural.json        # 문화권 확장 데이터
+├── apps/                      # (예정) web: Next.js(1단계) · api: Hono(2단계) — docs/plan/architecture.md §4
+├── packages/core/             # (예정) 지금의 lib/ 를 옮겨 웹·API·평가 스크립트가 함께 씀(1단계)
+├── deploy/                    # (예정) 맥미니 실행 설정(3단계)
 ├── lib/
 │   ├── assessment/            # 검사 순수 모듈 (브라우저·서버 공용)
 │   │   ├── types.ts           # 응답·축 결과·검사 결과 타입
@@ -108,7 +112,7 @@ mbti_nextjs/
 ├── evals/
 │   └── chatbot/               # 상담 평가 세트·절차 원본 (README.md, scenarios.json, rubric.json, results/, rendered/는 자동 생성)
 ├── docs/
-│   ├── plan/                  # 기획 문서 (overview, chatbot_spec, chatbot_eval_plan, report_spec, copy_tone_guide, user_flow_spec)
+│   ├── plan/                  # 기획 문서 (overview, architecture, chatbot_spec, chatbot_eval_plan, report_spec, copy_tone_guide, user_flow_spec)
 │   └── design/                # 디자인 기준 (design_spec, type_naming, tokens.json, 시안, SVG 에셋)
 ├── .agents/
 │   └── skills/chat-eval/      # 상담 평가 스킬 (Codex·Antigravity가 읽음)
@@ -148,6 +152,8 @@ Gemini Flash  →  Groq (Llama 3.3 70B)  →  Cerebras  →  OpenRouter(무료 �
 ```
 키가 설정되지 않은 제공자는 자동으로 건너뜁니다.
 
+> ⚠️ 위 체인은 초기 설정입니다. 실제 사용자 상담은 입력을 학습에 쓰지 않는 **Cloudflare Workers AI(Gemma 4 26B)**로만 하기로 했고, 폴백 체인은 2단계(API 서버)에서 다시 정합니다 (`docs/plan/architecture.md` §3 원칙 5).
+
 ### 사용 예시 (앱 구축 후)
 ```ts
 import { getAdvice, listStarterQuestions } from "@/lib/chatbot";
@@ -172,12 +178,14 @@ const starters = await listStarterQuestions("career");
 
 ## 🗺️ 향후 방향 (로드맵)
 
-| 단계 | 내용 |
-|------|------|
-| **1단계 · 검사 플로우** | Next.js 스캐폴딩(TypeScript/Tailwind) + 디자인 토큰·글꼴·공통 부품, 랜딩, 60문항 검사 UI(한 페이지 6문항) → `lib/assessment`로 채점·동점 질문·유형 판별 |
-| **2단계 · 결과 페이지** | `profiles.json`·`compatibility.json`·`famous-people.json` 렌더링, 결과 공유 기능 |
-| **3단계 · AI 챗봇** | Route Handler에서 `getAdvice()` 배선, 채팅 UI, API 키 환경변수 설정, (선택) 스트리밍 응답 |
-| **4단계 · 운영** | 배포, 분석, 접근성/SEO, 성능 최적화 |
+시스템 구조와 단계는 [`docs/plan/architecture.md`](docs/plan/architecture.md)가 기준입니다. 웹·API 서버를 **맥미니 홈서버**에서 **Cloudflare Tunnel**로 운영합니다.
+
+| 단계 | 내용 | 상태 |
+|------|------|------|
+| **1단계 · 웹 검사·리포트** | 모노레포 뼈대(`apps/web`, `packages/core`) + Next.js(TypeScript/Tailwind), 디자인 토큰·글꼴·공통 부품, 랜딩, 60문항 검사, 결과 리포트·공유. API 없이 동작 | 확정 |
+| **2단계 · API 서버 + 상담** | `apps/api`(Hono · bun, `/v1` + OpenAPI), `/v1/chat` 스트리밍, 사용 한도, 봇 차단(Turnstile), 채팅 UI | 확정 |
+| **3단계 · 맥미니 서버 + 출시 준비** | 도메인·Cloudflare Tunnel·실행 방식·감시, 분석, 접근성·SEO·성능, `/privacy`·법률 검토 | 확정 |
+| **4~6단계 · 앱(KMP) · 커뮤니티 · 유료** | 1~3단계가 모두 끝난 뒤 계획. 그 전까지는 넘어가기 쉽게 만드는 규칙만 지킨다(architecture.md §6) | 1~3단계 뒤 |
 
 ---
 
