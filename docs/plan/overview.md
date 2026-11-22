@@ -37,3 +37,4 @@
 - `docs/plan/report_spec.md`: 리포트 구성안 및 한국/일본 문화 차이 데이터 명세서
 - `docs/plan/chatbot_spec.md`: 3가지 AI 챗봇 페르소나 프롬프트 설계 및 윤리/안전 가이드라인
 - `docs/plan/user_flow_spec.md`: 검사 → 리포트 → 상담 전체 유저 플로우, 검사 진행·채점 규칙(동점·경계), 저장·개인정보 (당초 `test_flow.md`로 계획했던 범위를 포함)
+- `docs/plan/architecture.md`: 시스템 아키텍처 — 웹(Next.js)·API 서버(Hono)를 맥미니 홈서버 + Cloudflare Tunnel로 운영, 원칙·단계(1~3 확정, 4~6 앱·커뮤니티·유료는 그 뒤)·앱 대비 규칙
